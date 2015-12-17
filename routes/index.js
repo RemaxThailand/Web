@@ -4,7 +4,7 @@ exports.index = function(req, res, data){
 		data.title = 'หน้าหลัก';
 	}
 
-	res.send('Hello World :' + data);
+	res.send('Hello World :');
 
 	//exports.getCategory(req, res, data);
 
