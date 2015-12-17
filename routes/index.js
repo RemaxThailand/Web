@@ -4,7 +4,8 @@ exports.index = function(req, res, data){
 		data.title = 'หน้าหลัก';
 	}
 
-	exports.getCategory(req, res, data);
+	//exports.getCategory(req, res, data);
+	res.send(data);
 
 };
 
