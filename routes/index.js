@@ -20,9 +20,9 @@ exports.getCategory = function(req, res, data){
 		},
 		function (error, response, body) {
 			if (!error) {				
-				//var json = JSON.parse(body);
-				//data.category = json.result;
-				res.json(body);
+				var json = JSON.parse(body);
+				data.category = json.result;
+				res.json(data);
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
