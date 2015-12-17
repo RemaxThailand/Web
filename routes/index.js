@@ -4,12 +4,12 @@ exports.index = function(req, res, data){
 		data.title = 'หน้าหลัก';
 	}
 
-	res.send('Hello World :' + data);
+	//res.send('Hello World :' + data);
 
-	//exports.getCategory(req, res, data);
+	exports.getCategory(req, res, data);
 
 };
-/*
+
 exports.getCategory = function(req, res, data){
 	try{
 		request.post({url: {data.apiUrl + '/category/info'},
@@ -22,7 +22,7 @@ exports.getCategory = function(req, res, data){
 			if (!error) {				
 				var json = JSON.parse(body);
 				data.category = json.result;
-				res.send(data);
+				res.send(data.category);
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
@@ -35,4 +35,4 @@ exports.getCategory = function(req, res, data){
 		data.stack = error.stack;
 		res.render('error', { data: data });
 	}
-};*/
+};
