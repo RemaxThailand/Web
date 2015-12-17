@@ -5,8 +5,8 @@ exports.index = function(req, res, data){
 	}
 	//var json = JSON.parse(data);
 	//res.send('Hello World :' + json);
-	res.json(data);
-	//exports.getCategory(req, res, data);
+	//res.json(data);
+	exports.getCategory(req, res, data);
 
 };
 
