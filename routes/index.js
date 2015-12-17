@@ -10,7 +10,7 @@ exports.index = function(req, res, data){
 
 };
 
-/*exports.getCategory = function(req, res, data){
+exports.getCategory = function(req, res, data){
 	try{
 		request.post({url: {data.apiUrl + '/category/info'},
 			form: {
@@ -35,4 +35,4 @@ exports.index = function(req, res, data){
 		data.stack = error.stack;
 		res.render('error', { data: data });
 	}
-};*/
+};
