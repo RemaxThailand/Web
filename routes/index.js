@@ -14,7 +14,8 @@ exports.getCategory = function(req, res, data){
 	try{
 		request('http://www.facebook.com', function (error, response, body) {
 		  if (!error && response.statusCode == 200) {
-			res.json(body)
+			  var json = JSON.parse(body);
+			res.json(json)
 		  }
 		});
 	}
