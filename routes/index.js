@@ -12,7 +12,7 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		request.post({headers: { 'referer': 'api-test.powerdd.com' }, url: data.apiUrl + '/category/info',
+		request.post({url: data.apiUrl + '/category/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop
