@@ -12,12 +12,7 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		request.post({headers: { 'referer': 'https://test.remaxthailand.co.th' }, url: data.apiUrl + '/category/info',
-			form: {
-				apiKey: data.apiKey,
-				shop: data.shop
-			}
-		},
+		request.post({url: 'www.google.com'},
 		function (error, response, body) {
 			if (!error) {				
 				var json = JSON.parse(body);
