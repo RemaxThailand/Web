@@ -12,17 +12,10 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		request.post({url: 'www.facebook.com'},
-		function (error, response, body) {
-			if (!error) {				
-				var json = JSON.parse(body);
-				data.category = json.result;
-				res.json(data);
-			} else{
-				data.error = error.message;
-				data.stack = error.stack;
-				res.render('error', { data: data });
-			}
+		request('https://www.facebook.com', function (error, response, body) {
+		  if (!error && response.statusCode == 200) {
+			res.json(body)
+		  }
 		});
 	}
 	catch(error) {
