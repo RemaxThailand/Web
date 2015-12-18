@@ -17,11 +17,11 @@ exports.getCategory = function(req, res, data){
 			if (!error) {				
 				var json = JSON.parse(body);
 				data.category = json.result;
-				console.log(data);
+				res.json(data);
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
-				console.log(data);
+				res.json(data);
 				//res.render('error', { data: data });
 			}
 		});
@@ -29,7 +29,7 @@ exports.getCategory = function(req, res, data){
 	catch(error) {
 		data.error = error.message;
 		data.stack = error.stack;
-		console.log(data);
+		res.json(data);
 		//res.render('error', { data: data });
 	}
 };
