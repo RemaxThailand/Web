@@ -5,7 +5,15 @@ exports.index = function(req, res, data){
 	}
 	//var json = JSON.parse(data);
 	//res.send('Hello World :' + json);
-	res.json(data);
-	//exports.getCategory(req, res, data);
+	//res.json(data);
+	exports.getCategory(req, res, data);
 
+};
+
+exports.getCategory = function(req, res, data){
+	request('http://www.google.com', function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+			res.json(body) // Show the HTML for the Google homepage.
+		}
+	})
 };
