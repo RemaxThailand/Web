@@ -12,7 +12,7 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		request.post({headers: { 'referer': 'https://test.remaxthailand.co.th/' }, url: data.apiUrl + '/category/info',
+		request.post({headers: { 'referer': 'https://test.remaxthailand.co.th' }, url: data.apiUrl + '/category/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop
@@ -22,7 +22,7 @@ exports.getCategory = function(req, res, data){
 			if (!error) {				
 				var json = JSON.parse(body);
 				data.category = json.result;
-				res.json(data);
+				console.log(data);
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
