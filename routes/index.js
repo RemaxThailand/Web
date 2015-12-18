@@ -26,7 +26,7 @@ exports.getCategory = function(req, res, data){
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
-				res.json(data);
+				console.log(data);
 				//res.render('error', { data: data });
 			}
 		});
@@ -34,7 +34,7 @@ exports.getCategory = function(req, res, data){
 	catch(error) {
 		data.error = error.message;
 		data.stack = error.stack;
-		res.json(data);
+		console.log(data);
 		//res.render('error', { data: data });
 	}
 };
