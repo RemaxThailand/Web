@@ -12,7 +12,7 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		request.post({url: 'https://www.google.com'},
+		request.post({headers: { 'referer': 'https://test.remaxthailand.co.th' }, url: 'https://remaxthailand.co.th'},
 		function (error, response, body) {
 			if (!error) {				
 				var json = JSON.parse(body);
@@ -29,7 +29,7 @@ exports.getCategory = function(req, res, data){
 	catch(error) {
 		data.error = error.message;
 		data.stack = error.stack;
-		res.json(data);
+		console.log(data);
 		//res.render('error', { data: data });
 	}
 };
