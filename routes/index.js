@@ -11,17 +11,10 @@ exports.index = function(req, res, data){
 };
 
 exports.getCategory = function(req, res, data){
-	try{
-		request('http://www.facebook.com', function (error, response, body) {
-		  if (!error && response.statusCode == 200) {
-			  var json = JSON.parse(body);
-			res.json(json)
-		  }
-		});
-	}
-	catch(error) {
-		data.error = error.message;
-		data.stack = error.stack;
-		res.render('error', { data: data });
-	}
+	request('http://www.facebook.com', function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+		  var json = JSON.parse(body);
+		res.json(json)
+	  }
+	});
 };
