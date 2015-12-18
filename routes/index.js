@@ -13,7 +13,7 @@ exports.index = function(req, res, data){
 exports.getCategory = function(req, res, data){
 	request('http://www.google.com', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
-			console.log(body) // Show the HTML for the Google homepage.
+			res.send(body) // Show the HTML for the Google homepage.
 		}
 	})
 };
