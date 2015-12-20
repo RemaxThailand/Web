@@ -12,19 +12,7 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		request('www.google.com',
-		function (error, response, body) {
-			if (!error) {				
-				var json = JSON.parse(body);
-				data.category = json.result;
-				res.json(data);
-			} else{
-				data.error = error.message;
-				data.stack = error.stack;
-				res.json(data);
-				//res.render('error', { data: data });
-			}
-		});
+		res.send('haha');
 	}
 	catch(error) {
 		data.error = error.message;
