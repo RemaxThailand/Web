@@ -17,4 +17,11 @@ block content
 				a(href='#{data.systemUrl}/product/category/new')
 					img.img-responsive(src='https://cdn24fin.blob.core.windows.net/img/products/1/D-New Arrivals/1.jpg')
 				.message.text-center สินค้ามาใหม่
+				
+		each values in data.category
+			.pinItem
+				.pinBox.pinWell.margin-bottom-15
+					a(href='#{data.systemUrl}/product/category/'+values.url)
+						img.img-responsive(src='https://img.powerdd.com/category/'+values.url+'/1.jpg/1.jpg')
+					.message.text-center values.name
 	
