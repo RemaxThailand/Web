@@ -3,12 +3,11 @@ var http = require('http')
 	, favicon = require('serve-favicon')
 	, fs = require('fs')
 	, path = require('path')
-	, routes = require('./routes');
-	
-	/*
 	, methodOverride = require('method-override')
 	, bodyParser = require('body-parser')
-	, errorHandler = require('errorhandler')*/
+	, errorHandler = require('errorhandler');
+	//, routes = require('./routes');
+
 global.config = require('./config.js');
 
 var app = express();
