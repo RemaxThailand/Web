@@ -34,7 +34,7 @@ app.get('*', function(req, res) {
 	data.websiteUrl = config.websiteUrl;
 	data.systemUrl = config.systemUrl;
 	data.categorySelected = '';
-	//data.Moment = require('moment');
+	data.Moment = require('moment');
 
 	var url = req.originalUrl.split('/');
 	url = url.filter(function(n){ return n !== ''; });
