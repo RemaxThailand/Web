@@ -33,6 +33,7 @@ app.get('*', function(req, res) {
 	data.apiKey = config.apiKey;
 	data.websiteUrl = config.systemUrl;
 	data.systemUrl = config.systemUrl;
+	data.systemName = config.systemName;
 	data.categorySelected = '';
 	data.Moment = require('moment');
 

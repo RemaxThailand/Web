@@ -1,7 +1,7 @@
 var request = require('request');
 exports.index = function(req, res, data){
 	if (data.screen == 'index') {
-		data.title = 'หน้าหลัก';
+		data.title = 'หน้าหลัก : ' + data.systemName;
 	}
 	//var json = JSON.parse(data);
 	//res.send('Hello World :' + json);
