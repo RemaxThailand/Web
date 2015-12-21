@@ -20,27 +20,21 @@ exports.getCategory = function(req, res, data){
 		},
 		function (error, response, body) {
 			if (!error) {				
-				//var json = JSON.parse(body);
-				//data.category = json.result;
-				res.json(body);
+				var json = JSON.parse(body);
+				data.category = json.result;
+				res.send(data);
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
-				//res.send(data);
-				console.log(error);
-				//res.render('error', { data: data });
+				res.render('error', { data: data });
 			}
 		}); 
 		
-		//console.log(data);
-		//res.send(data);
 		
 	}
 	catch(error) {
 		data.error = error.message;
 		data.stack = error.stack;
-		//res.send(data);
-		console.log(error);
-		//res.render('error', { data: data });
+		res.render('error', { data: data });
 	}
 };
