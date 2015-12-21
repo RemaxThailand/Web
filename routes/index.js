@@ -35,8 +35,10 @@ exports.index = function(req, res, data){
 					exports.getProductByCategory(req, res, data);
 				}else if(data.screen == 'product'){
 					
+				}else{
+					res.render(data.screen, { data: data });
 				}
-				res.render(data.screen, { data: data });
+				
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
