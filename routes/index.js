@@ -12,7 +12,7 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		/* request.post(url: 'https://api.remaxthailand.co.th/category/info',
+		request.post(headers: { 'referer': 'test.remaxthailand.co.th' }, url: 'https://api.remaxthailand.co.th/category/info',
 			form: {
 				apiKey: 'E2ECCC83-6B00-4741-986E-DEB0F57B33DB',
 				shop: 'POWERDDH-8888-8888-B620-48D3B6489999'
@@ -26,18 +26,21 @@ exports.getCategory = function(req, res, data){
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
-				res.send(data);
+				//res.send(data);
+				console.log(error);
 				//res.render('error', { data: data });
 			}
-		}); */ 
-		console.log(data);
-		res.send(data);
+		}); 
+		
+		//console.log(data);
+		//res.send(data);
 		
 	}
 	catch(error) {
 		data.error = error.message;
 		data.stack = error.stack;
-		res.send(data);
+		//res.send(data);
+		console.log(error);
 		//res.render('error', { data: data });
 	}
 };
