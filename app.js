@@ -31,7 +31,7 @@ app.get('*', function(req, res) {
 	data.shop = config.shop;
 	data.apiUrl = config.apiUrl;
 	data.apiKey = config.apiKey;
-	data.websiteUrl = config.websiteUrl;
+	data.websiteUrl = config.systemUrl;
 	data.systemUrl = config.systemUrl;
 	data.categorySelected = '';
 	data.Moment = require('moment');
