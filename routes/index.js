@@ -12,10 +12,9 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		request.post(url: 'https://www.facebook.com/ajax/bz',
+		request.post(url: 'https://api.remaxthailand.co.th/category/info',
 			form: {
-				__a: 1,
-				__dyn: 'aKTyBW8-aloAwmgDDzbHaF8x9xq9JaUK5EK8GAEG8VpCC-CGBz8ym6oxpbGES5V8Z6VEChyd1eFEsz-dCxKqE88zUR1uti2eexKrmEWVp4AKVWxeUlAzVVEgyUS27BADDBBwDKp2VqBryp8-6o'
+				
 			}
 		},
 		function (error, response, body) {
