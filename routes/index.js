@@ -12,7 +12,7 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		request({headers: { 'referer': 'https://test.remaxthailand.co.th' }, url: 'https://api-test.remaxthailand.co.th/category/info',
+		request.post({headers: { 'referer': 'https://test.remaxthailand.co.th' }, url: 'https://api-test.remaxthailand.co.th/category/info',
 			form: {
 				apiKey: 'E2ECCC83-6B00-4741-986E-DEB0F57B33DB',
 				shop: 'POWERDDH-8888-8888-B620-48D3B6489999'
@@ -20,9 +20,9 @@ exports.getCategory = function(req, res, data){
 		},
 		function (error, response, body) {
 			if (!error) {				
-				var json = JSON.parse(body);
-				data.category = json.result;
-				res.send(data);
+				//var json = JSON.parse(body);
+				//data.category = json.result;
+				res.json(body);
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
