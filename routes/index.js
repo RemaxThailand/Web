@@ -22,7 +22,7 @@ exports.getCategory = function(req, res, data){
 			if (!error) {				
 				var json = JSON.parse(body);
 				data.category = json.result;
-				res.send(data.category);
+				res.render(data.screen, { data: data });
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
