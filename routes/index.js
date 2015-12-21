@@ -12,10 +12,10 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		request.post({headers: { 'referer': 'remaxthailand.co.th' }, url: data.apiUrl + '/category/info',
+		request.post({headers: { 'referer': 'test.remaxthailand.co.th' }, url: 'https://api-test.remaxthailand.co.th/category/info',
 			form: {
-				apiKey: data.apiKey,
-				shop: data.shop
+				apiKey: 'E2ECCC83-6B00-4741-986E-DEB0F57B33DB',
+				shop: 'POWERDDH-8888-8888-B620-48D3B6489999'
 			}
 		},
 		function (error, response, body) {
