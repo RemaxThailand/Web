@@ -14,6 +14,8 @@ exports.index = function(req, res, data){
 		data.title = 'เกี่ยวกับเรา : ' + data.systemName;
 	}else if(data.screen == 'warranty_condition'){
 		data.title = 'เงื่อนไขการรับประกัน : ' + data.systemName;
+	}else if(data.screen == 'category'){
+		data.title = 'หมวดหมู่สินค้า : ' + data.systemName;
 	}
 	
 	//## Get Category Menu ##//
@@ -29,7 +31,6 @@ exports.index = function(req, res, data){
 				var json = JSON.parse(body);
 				data.category = json.result;
 				if(data.screen == 'category'){
-					data.categoryName = data.category.name.indexOf(data.subUrl);
 					data.categorySelected = data.subUrl;
 					exports.getProductByCategory(req, res, data);
 				}else if(data.screen == 'product'){
@@ -57,8 +58,7 @@ exports.index = function(req, res, data){
 
 //## Get Product by Category ##//
 exports.getProductByCategory = function(req, res, data){
-	res.send(data);
-	/*try{
+	try{
 		request.post({headers: { 'referer': data.websiteUrl }, url: data.apiUrl + '/product/info',
 			form: {
 				apiKey: data.apiKey,
@@ -71,31 +71,8 @@ exports.getProductByCategory = function(req, res, data){
 			if (!error) {
 				var json = JSON.parse(body);
 				data.product = json.result;
-				
-				//## [Start] Summary Brand in Category ##//
-				var brandArrey = [];					
-				for ( i=0; i< json.result.length; i++){
-					var info = {};
-					info['BrandName'] = json.result[i].Brand;
-					brandArrey.push(info);
-				}
-				
-				var unique = {};
-				var distinct = [];
-				for( var i in brandArrey ){
-					if( typeof(unique[brandArrey[i].BrandName]) == 'undefined'){
-						distinct.push(brandArrey[i]);
-					}
-					unique[brandArrey[i].BrandName] = 0;
-				}
-				distinct.sort();
-				distinct.reverse();
-				
-				data.brandInCategory = distinct;
-				//## [End] Summary Brand in Category ##//
-				
-				data.title = data.categoryName + ' - ' + data.title;
-				res.render(data.screen, { data: data});
+				res.send(data.product);
+				//res.render(data.screen, { data: data});
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
@@ -107,5 +84,5 @@ exports.getProductByCategory = function(req, res, data){
 		data.error = error.message;
 		data.stack = error.stack;
 		res.render('error', { data: data });
-	}*/
+	}
 };
