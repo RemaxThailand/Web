@@ -35,9 +35,6 @@ exports.getCategory = function(req, res, data){
 		//console.log(data);
 		//res.send(data);
 		
-		request.post({headers: { 'referer': 'https://'+req.headers['x-host'] }, url: config.apiUrl + '/member/token/verify',
-		
-		
 	}
 	catch(error) {
 		data.error = error.message;
