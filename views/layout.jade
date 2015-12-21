@@ -9,8 +9,8 @@ html
 		link(rel='shortcut icon', href='/favicon.ico', type='image/x-icon')
 		link(rel='icon', href='/favicon.ico', type='image/x-icon')
 		link(href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css', rel='stylesheet')
-		link(href='https://cdn.powerdd.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet')
-		link(href='https://cdn.powerdd.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
+		link(href='https://cdn.remaxthailand.co.th/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet')
+		link(href='https://cdn.remaxthailand.co.th/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
 		link(href='/stylesheets/style.css', rel='stylesheet')
 		script(src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js')
 	body
@@ -26,30 +26,30 @@ html
 							span.icon-bar
 							span.icon-bar
 							span.icon-bar
-						a.navbar-brand(href= data.system_url)
+						a.navbar-brand(href= data.systemUrl)
 							img(src='https://img.powerdd.com/web/logo/remax.png')
 					#navbar.navbar-collapse.collapse
 						ul.nav.navbar-nav
 							li.(class= (data.screen == 'index' ? 'active' : ''))
-								a(href= data.system_url) หน้าหลัก
+								a(href= data.systemUrl) หน้าหลัก
 							li.(class= (data.screen == 'about_us' ? 'active' : ''))
-								a(href="data.system_url+'/about_us'") เกี่ยวกับเรา
+								a(href="data.systemUrl+'/about_us'") เกี่ยวกับเรา
 							li(class=(data.screen == 'category' ? 'dropdown active' : 'dropdown'))
 							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
 								| หมวดหมู่สินค้า 
 								span.caret
 							ul.dropdown-menu(role='menu')
 								li(class=(data.screen == 'category' && data.categorySelected == new ? 'active' : ''))
-									a(href= data.system_url+'/product/category/new') New Arrivals
+									a(href= data.systemUrl+'/product/category/new') New Arrivals
 								each values in data.category
 									li(class=(data.screen == 'category' && data.categorySelected == values.url ? 'active' : ''))
-										a(href='#{data.system_url}/category/'+values.url)= values.name
+										a(href='#{data.systemUrl}/category/'+values.url)= values.name
 							li.(class= (data.screen == 'contact_us' ? 'active' : ''))
-								a(href= data.system_url+'/contact_us') ติดต่อเรา
+								a(href= data.systemUrl+'/contact_us') ติดต่อเรา
 							li.(class= (data.screen == 'warranty_condition' ? 'active' : ''))
-								a(href= data.system_url+'/warranty_condition') เงื่อนไขการรับประกัน
+								a(href= data.systemUrl+'/warranty_condition') เงื่อนไขการรับประกัน
 							li.(class= (data.screen == 'payment' ? 'active' : ''))
-								a(href= data.system_url+'/payment') วิธีการชำระเงิน
+								a(href= data.systemUrl+'/payment') วิธีการชำระเงิน
 						ul.nav.navbar-nav.navbar-right
 							li
 								a(href='https://24fin-backend.azurewebsites.net') เข้าสู่ระบบ/สมัครสมาชิก
@@ -66,10 +66,10 @@ html
 		
 		script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js')
 		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js')	
-		script(src='//cdn.powerdd.com/jquery/2.1.4/jquery.min.js')
-		script(src='//cdn.powerdd.com/bootstrap/3.3.5/js/bootstrap.min.js')
+		script(src='//cdn.remaxthailand.co.th/jquery/2.1.4/jquery.min.js')
+		script(src='//cdn.remaxthailand.co.th/bootstrap/3.3.5/js/bootstrap.min.js')
 		script(src='/scripts/js.cookie.js')
 		script(src='/scripts/main.js')
 		if (data.script != '')
-			script(src='#{data.system_url}#{data.script}')
+			script(src='#{data.systemUrl}#{data.script}')
 		
