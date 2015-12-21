@@ -32,7 +32,7 @@ exports.getCategory = function(req, res, data){
 		}); */ 
 		//res.send(data);
 		
-		request('https://www.google.com', function (error, response, body) {
+		request('https://www.facebook.com', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				res.json(body);// Show the HTML for the Google homepage.
 			}else{
