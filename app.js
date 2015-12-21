@@ -3,11 +3,12 @@ var http = require('http')
 	, favicon = require('serve-favicon')
 	, fs = require('fs')
 	, path = require('path')
+	, routes = require('./routes');
+	
+	/*
 	, methodOverride = require('method-override')
 	, bodyParser = require('body-parser')
-	, errorHandler = require('errorhandler')
-	, routes = require('./routes');
-
+	, errorHandler = require('errorhandler')*/
 global.config = require('./config.js');
 
 var app = express();
@@ -36,7 +37,7 @@ app.get('*', function(req, res) {
 	data.categorySelected = '';
 	//data.Moment = require('moment');
 	
-	res.header('Access-Control-Allow-Origin', '*');
+	//res.header('Access-Control-Allow-Origin', '*');
 
 	var url = req.originalUrl.split('/');
 	url = url.filter(function(n){ return n !== ''; });
