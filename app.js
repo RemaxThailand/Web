@@ -28,7 +28,7 @@ app.get('*', function(req, res) {
 	//## Initial Data ##//
 	data = {};
 	data.screen = 'index';
-	data.shop = 'POWERDDH-8888-8888-B620-48D3B6489999'; //config.shop;
+	//data.shop = 'POWERDDH-8888-8888-B620-48D3B6489999'; //config.shop;
 	//data.apiUrl = 'https://api.remaxthailand.co.th';//config.apiUrl;
 	//data.apiKey = 'E2ECCC83-6B00-4741-986E-DEB0F57B33DB'; //config.apiKey;
 	//data.websiteUrl = //config.websiteUrl;
