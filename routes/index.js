@@ -12,7 +12,7 @@ exports.index = function(req, res, data){
 
 exports.getCategory = function(req, res, data){
 	try{
-		/* request.post({headers: { 'referer': 'https://test.remaxthailand.co.th' }, url: 'https://api-test.remaxthailand.co.th/category/info',
+		request.post({headers: { 'referer': 'https://test.remaxthailand.co.th', 'User-Agent': 'request' }, url: 'https://api-test.remaxthailand.co.th/category/info',
 			form: {
 				apiKey: 'E2ECCC83-6B00-4741-986E-DEB0F57B33DB',
 				shop: 'POWERDDH-8888-8888-B620-48D3B6489999'
@@ -29,16 +29,16 @@ exports.getCategory = function(req, res, data){
 				res.send(data);
 				//res.render('error', { data: data });
 			}
-		}); */
+		}); 
 		//res.send(data);
 		
-		request('https://api-test.remaxthailand.co.th/category/info', function (error, response, body) {
+		/*request('https://api-test.remaxthailand.co.th/category/info', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				res.json(body);// Show the HTML for the Google homepage.
 			}else{
 				res.json(error);
 			}
-		});
+		});*/
 	}
 	catch(error) {
 		data.error = error.message;
