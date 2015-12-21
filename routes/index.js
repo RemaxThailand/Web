@@ -32,9 +32,11 @@ exports.getCategory = function(req, res, data){
 		}); */
 		//res.send(data);
 		
-		request('http://www.google.com', function (error, response, body) {
+		request('https://api-test.remaxthailand.co.th/category/info', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				res.json(body);// Show the HTML for the Google homepage.
+			}else{
+				res.json(error);
 			}
 		});
 	}
