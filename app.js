@@ -5,8 +5,8 @@ var http = require('http')
 	, path = require('path')
 	, methodOverride = require('method-override')
 	, bodyParser = require('body-parser')
-	, errorHandler = require('errorhandler');
-	//, routes = require('./routes');
+	, errorHandler = require('errorhandler')
+	, routes = require('./routes');
 
 global.config = require('./config.js');
 
