@@ -37,7 +37,8 @@ app.get('*', function(req, res) {
 	data.categorySelected = '';
 	data.Moment = require('moment');
 
-	var url = req.originalUrl.split('/');
+	//var url = req.originalUrl.split('/');
+	var url = req.headers['x-original-url'].split('/');
 	url = url.filter(function(n){ return n !== ''; });
 	data.url = url;
 	
