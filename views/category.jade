@@ -37,6 +37,7 @@ block content
 										| ยังไม่กำหนด
 									else
 										| #{values.price1}
-								| บาท
+								if values.price1 != 0
+									|  บาท
 
 							.clearfix
