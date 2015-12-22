@@ -44,7 +44,7 @@ app.get('*', function(req, res) {
 	
 	if ( url.length >= 1 ) {
 		data.screen = url[0];
-		fs.exists('/views/'+data.screen+'.jade', function (exists) {
+		fs.exists('./views/'+data.screen+'.jade', function (exists) {
 			if (exists) {
 				fs.exists('./public/javascripts/'+data.screen+'.js', function (exists) {
 					data.script = (exists) ? '/javascripts/'+data.screen+'.js' : '';
@@ -53,7 +53,7 @@ app.get('*', function(req, res) {
 				});
 			}
 			else {
-				data.subUrl = exists;
+				data.subUrl = './views/'+data.screen+'.jade';
 				routes.index(req, res, data);
 			}
 		});
