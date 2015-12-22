@@ -42,24 +42,19 @@ app.get('*', function(req, res) {
 	data.url = url;
 	
 	if ( url.length >= 1 ) {
-		data.screen = url[0];
-		var files = fs.readdirSync('/var/www/remaxthailand/test/views/');
-		console.log(files);
-		/*fs.exists('./views/'+data.screen+'.jade', function (exists) {
-			if (exists) {
-				
-				fs.exists('./public/javascripts/'+data.screen+'.js', function (exists) {
-					data.script = (exists) ? '/javascripts/'+data.screen+'.js' : '';
+		data.screen = url[0];		
+		fs.exists(config.viewsPath + data.screen + '.jade', function (exists) {
+			if (exists) {			
+				fs.exists(config.javascriptPath + data.screen + '.js', function (exists) {
+					data.script = (exists) ? '/javascripts/' + data.screen + '.js' : '';
 					data.subUrl = (url.length == 1 ) ? '' : url[1];
 					routes.index(req, res, data);
-				});
-				
+				});	
 			}
 			else {
-				data.subUrl = 'ELSE';
 				routes.index(req, res, data);
 			}
-		});*/
+		});
 	}
 	else {
 		routes.index(req, res, data);
