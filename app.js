@@ -52,7 +52,7 @@ app.get('*', function(req, res) {
 				});
 			}
 			else {
-				data.subUrl = 'WHAT';
+				data.subUrl = (url.length == 1 ) ? '' : url[1];
 				routes.index(req, res, data);
 			}
 		});
