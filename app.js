@@ -36,6 +36,8 @@ app.get('*', function(req, res) {
 	data.systemName = config.systemName;
 	data.categorySelected = '';
 	data.Moment = require('moment');
+	data.viewsPath = config.viewsPath;
+	data.javascriptPath = config.javascriptPath;
 
 	var url = req.url.split('/');
 	url = url.filter(function(n){ return n !== ''; });
@@ -43,16 +45,16 @@ app.get('*', function(req, res) {
 	
 	if ( url.length >= 1 ) {
 		data.screen = url[0];		
-		fs.exists(config.viewsPath + data.screen + '.jade', function (exists) {
+		fs.exists(data.viewsPath + data.screen + '.jade', function (exists) {
 			if (exists) {			
-				fs.exists(config.javascriptPath + data.screen + '.js', function (exists) {
+				fs.exists(data.javascriptPath + data.screen + '.js', function (exists) {
 					data.script = (exists) ? '/javascripts/' + data.screen + '.js' : '';
 					data.subUrl = (url.length == 1 ) ? '' : url[1];
 					routes.index(req, res, data);
 				});	
 			}
 			else {
-				data.subUrl = config.viewsPath + data.screen + '.jade';
+				data.subUrl = data.viewsPath + data.screen + '.jade';
 				routes.index(req, res, data);
 			}
 		});
