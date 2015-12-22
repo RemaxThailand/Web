@@ -52,6 +52,7 @@ app.get('*', function(req, res) {
 				});
 			}
 			else {
+				data.subUrl = 'WHAT';
 				routes.index(req, res, data);
 			}
 		});
