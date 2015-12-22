@@ -13,8 +13,7 @@ global.config = require('./config.js');
 var app = express();
 
 app.set('port', config.port || 9999);
-//app.set('views', path.join(__dirname, 'views'));
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/favicon.ico'));
 app.use(methodOverride());
@@ -38,8 +37,7 @@ app.get('*', function(req, res) {
 	data.categorySelected = '';
 	data.Moment = require('moment');
 
-	var url = req.originalUrl.split('/');
-	//var url = req.headers['x-host'].split('/');
+	var url = req.url.split('/');
 	url = url.filter(function(n){ return n !== ''; });
 	data.url = url;
 	
@@ -47,13 +45,13 @@ app.get('*', function(req, res) {
 		data.screen = url[0];
 		fs.exists('./views/'+data.screen+'.jade', function (exists) {
 			if (exists) {
-				/*fs.exists('./public/javascripts/'+data.screen+'.js', function (exists) {
+				
+				fs.exists('./public/javascripts/'+data.screen+'.js', function (exists) {
 					data.script = (exists) ? '/javascripts/'+data.screen+'.js' : '';
 					data.subUrl = (url.length == 1 ) ? '' : url[1];
 					routes.index(req, res, data);
-				});*/
-				data.subUrl = 'IF';
-				routes.index(req, res, data);
+				});
+				
 			}
 			else {
 				data.subUrl = 'ELSE';
