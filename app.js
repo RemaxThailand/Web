@@ -43,7 +43,7 @@ app.get('*', function(req, res) {
 	
 	if ( url.length >= 1 ) {
 		data.screen = url[0];
-		var files = fs.readdirSync('./views/');
+		var files = fs.readdirSync('/var/www/remaxthailand/test/views/');
 		console.log(files);
 		/*fs.exists('./views/'+data.screen+'.jade', function (exists) {
 			if (exists) {
