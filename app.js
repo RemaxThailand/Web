@@ -53,7 +53,7 @@ app.get('*', function(req, res) {
 				});
 			}
 			else {
-				data.subUrl = req.headers['x-host'];
+				data.subUrl = req.originalUrl;
 				routes.index(req, res, data);
 			}
 		});
