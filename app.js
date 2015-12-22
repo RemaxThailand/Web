@@ -13,7 +13,8 @@ global.config = require('./config.js');
 var app = express();
 
 app.set('port', config.port || 9999);
-app.set('views', path.join(__dirname, 'views'));
+//app.set('views', path.join(__dirname, 'views'));
+app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/favicon.ico'));
 app.use(methodOverride());
