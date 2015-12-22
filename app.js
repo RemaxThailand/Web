@@ -52,7 +52,7 @@ app.get('*', function(req, res) {
 				});
 			}
 			else {
-				data.subUrl = (url.length == 1 ) ? '' : url[1];
+				data.subUrl = 'Hell Hidra!!!';
 				routes.index(req, res, data);
 			}
 		});
