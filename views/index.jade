@@ -5,23 +5,23 @@ block content
 		.pinItem
 			.pinBox.pinWell.margin-bottom-15
 				a(href='#{data.systemUrl}/register')
-					img.img-responsive(src='https://img.powerdd.com/web/box/dealer_regis.jpg')
+					img.img-responsive(src='https://src.remaxthailand.co.th/img/web/box/dealer_regis.jpg')
 				.message.text-center สมัครตัวแทนจำหน่าย
 		.pinItem
 			.pinBox.pinWell.margin-bottom-15
 				a(href='#{data.systemUrl}/shop_register')
-					img.img-responsive(src='https://img.powerdd.com/web/box/shop_register.jpg')
+					img.img-responsive(src='https://src.remaxthailand.co.th/img/web/box/shop_register.jpg')
 				.message.text-center สนใจเปิดช็อป
 		.pinItem
 			.pinBox.pinWell.margin-bottom-15
 				a(href='#{data.systemUrl}/category/new')
-					img.img-responsive(src='https://cdn24fin.blob.core.windows.net/img/products/1/D-New Arrivals/1.jpg')
+					img.img-responsive(src='https://src.remaxthailand.co.th/img/category/new_arrivals/1.jpg')
 				.message.text-center สินค้ามาใหม่
 				
 		each values in data.category
 			.pinItem
 				.pinBox.pinWell.margin-bottom-15
 					a(href='#{data.systemUrl}/category/'+values.url)
-						img.img-responsive(src='https://img.powerdd.com/category/'+values.url+'/1.jpg')
+						img.img-responsive(src='https://src.remaxthailand.co.th/img/category/'+values.url+'/1.jpg')
 					.message.text-center= values.name
 	
