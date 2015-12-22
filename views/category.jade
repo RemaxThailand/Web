@@ -32,5 +32,5 @@ block content
 										| สินค้าหมด 							
 							.pull-right.no-wrap
 								| ราคาส่ง(3 ชิ้น)
-								b.text-danger (#{values.price1} == 0) ? 'ยังไม่กำหนด' : #{values.price1} + ' บาท'
+								b.text-danger #{(#{values.price1} == 0) ? 'ยังไม่กำหนด' : #{values.price1} + ' บาท'}
 							.clearfix
