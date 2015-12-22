@@ -44,13 +44,15 @@ app.get('*', function(req, res) {
 	
 	if ( url.length >= 1 ) {
 		data.screen = url[0];
-		fs.exists('../views/'+data.screen+'.jade', function (exists) {
+		fs.exists('./views/'+data.screen+'.jade', function (exists) {
 			if (exists) {
-				fs.exists('./public/javascripts/'+data.screen+'.js', function (exists) {
+				/*fs.exists('./public/javascripts/'+data.screen+'.js', function (exists) {
 					data.script = (exists) ? '/javascripts/'+data.screen+'.js' : '';
 					data.subUrl = (url.length == 1 ) ? '' : url[1];
 					routes.index(req, res, data);
-				});
+				});*/
+				data.subUrl = 'IF';
+				routes.index(req, res, data);
 			}
 			else {
 				data.subUrl = 'ELSE';
