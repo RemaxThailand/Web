@@ -15,8 +15,8 @@ block content
 										img(src='https://src.remaxthailand.co.th/img/web/gif/new.gif')
 									b.text-info
 										a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product)) #{values.name}
-									if values.sku != '' && values.sku.substr(0,1) == 'D'
-										.margin-top-5.pull-left #{values.sku}
+								if values.sku != '' && values.sku.substr(0,1) == 'D'
+									.margin-top-5.pull-left #{values.sku}
 									.margin-top-5.pull-right.no-wrap
 										if values.warranty > 0
 											if values.warranty >= 365
