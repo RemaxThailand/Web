@@ -29,7 +29,16 @@ block content
 							.pull-left.no-wrap
 								if values.stock <= 0 
 									b.text-danger
-										| สินค้าหมด 							
+										| สินค้าหมด 
+									| :
+								| ราคาปลีก 
+								b.text-danger
+									if values.price == 0
+										| ยังไม่กำหนด
+									else
+										| #{values.price}
+								if values.price != 0
+									|  บาท
 							.pull-right.no-wrap
 								| ราคาส่ง(3 ชิ้น) 
 								b.text-danger
