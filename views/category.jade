@@ -27,7 +27,7 @@ block content
 												| รับประกัน #{values.warranty} วัน
 							.clearfix.line.margin-bottom-5
 							.pull-left.no-wrap
-								| สินค้าหมด	
+								((#{values.stock} <= 0) ? b.text-danger #{'สินค้าหมด :'} : "ยังมี")									
 							.pull-right.no-wrap
 								| ราคาส่ง(3 ชิ้น)
 								b.text-danger 
