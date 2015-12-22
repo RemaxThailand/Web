@@ -54,7 +54,6 @@ app.get('*', function(req, res) {
 				});	
 			}
 			else {
-				data.subUrl = data.viewsPath + data.screen + '.jade';
 				routes.index(req, res, data);
 			}
 		});

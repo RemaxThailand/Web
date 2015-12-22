@@ -73,8 +73,8 @@ exports.getProductByCategory = function(req, res, data){
 			if (!error) {
 				var json = JSON.parse(body);
 				data.product = json.result;
-				res.send(data);
-				//res.render(data.screen, { data: data});
+				//res.send(data);
+				res.render(data.screen, { data: data});
 			} else{
 				data.error = error.message;
 				data.stack = error.stack;
