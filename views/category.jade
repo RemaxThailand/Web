@@ -36,7 +36,7 @@ block content
 									if values.price == 0
 										| ยังไม่กำหนด
 									else
-										| #{values.price}
+										| #{values.price}.numberFormat;
 								if values.price != 0
 									|  บาท
 							.pull-right.no-wrap
@@ -45,7 +45,7 @@ block content
 									if values.price1 == 0
 										| ยังไม่กำหนด
 									else
-										| #{values.price1}
+										| #{values.price1}.numberFormat;
 								if values.price1 != 0
 									|  บาท
 
