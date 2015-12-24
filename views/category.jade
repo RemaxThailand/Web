@@ -28,26 +28,21 @@ block content
 							.clearfix.line.margin-bottom-5
 							.pull-left.no-wrap
 								if values.stock <= 0 
-									b.text-danger
-										| สินค้าหมด 
+									b.text-danger สินค้าหมด 
 									| : 
-								| ราคาปลีก 
-								b.text-danger
-									if values.price == 0
-										| ยังไม่กำหนด
-									else
-										-var price = #{values.price}.numberFormat;
-										| price
+								| ราคาปลีก 								
+								if values.price == 0
+									b.text-danger ยังไม่กำหนด
+								else
+									b.text-danger.numberFormat(data-value="#{values.price}")
 								if values.price != 0
 									|  บาท
 							.pull-right.no-wrap
-								| ราคาส่ง(3 ชิ้น) 
-								b.text-danger
-									if values.price1 == 0
-										| ยังไม่กำหนด
-									else
-										-var price1 = #{values.price1}.numberFormat;
-										| price1
+								| ราคาส่ง(3ชิ้น)							
+								if values.price1 == 0
+									b.text-danger ยังไม่กำหนด
+								else
+									b.text-danger.numberFormat(data-value="#{values.price1}")
 								if values.price1 != 0
 									|  บาท
 
