@@ -1,4 +1,15 @@
 extends layout
 
 block content
-	p
+	.pinBox.pinWell.padding-10
+		.row
+			.col-xs-12.col-sm-4.col-md-4.margin-bottom-15
+				img#img_main.img-thumbnail.img_box_shadow(src= (#{data.productDetail.cover} != '') ? 'https://img.remaxthailand.co.th/500x500/product/#{data.productDetail.sku}/#{data.productDetail.cover}' : 'https://src.remaxthailand.co.th/img/product/default.jpg', alt='#{data.productDetail.name}', data-zoom-image="yyy")
+				
+				if data.productDetail.cover != "" && data.productDetail.image != undefined
+					.row
+						each values in data.productDetail.image
+							.col-xs-3.col-sm-3.col-md-3
+								img.pointer.img-thumbnail(src='https://img.remaxthailand.co.th/100x100/product/#{data.productDetail.sku}/#{values.image}', alt='#{data.productDetail.name}', class='img_small_list( values.image == data.productDetail.cover) ? active : ""')
+
+				

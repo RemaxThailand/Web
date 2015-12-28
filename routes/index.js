@@ -105,8 +105,9 @@ exports.getProductByItem = function(req, res, data){
 		function (error, response, body) {
 			if (!error) {
 				var json = JSON.parse(body);
-				data.product = json.result;
+				data.productDetail = json.result;
 				//res.send(data.product);
+				data.title = data.productDetail.name+' : '+ data.systemName;
 				res.render(data.screen, { data: data});
 			} else{
 				data.error = error.message;
