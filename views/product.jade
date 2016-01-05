@@ -6,7 +6,7 @@ block content
 			.col-xs-12.col-sm-4.col-md-4.margin-bottom-15
 				img#img_main.img-thumbnail.img_box_shadow(src= (#{data.productDetail.cover} != '') ? 'https://img.remaxthailand.co.th/500x500/product/#{data.productDetail.sku}/#{data.productDetail.cover}' : 'https://src.remaxthailand.co.th/img/product/default.jpg', alt='#{data.productDetail.name}', data-zoom-image="yyy")
 				
-				if typeof data.productDetail.image != 'undefined'
+				if typeof data.productDetail.image != 'undefined' && data.productDetail.image != ''
 					.row
 						each images in data.productDetail.image
 							.col-xs-3.col-sm-3.col-md-3
@@ -17,3 +17,71 @@ block content
 				.row.margin-top-15
 					.col-xs-12.margin-bottom-15
 						.line
+					if data.productDetail.chargeType != ''
+						.col-xs-4.bold.text-right.small
+							|หัวชาร์จแบบ
+								.col-xs-8
+									| #{data.productDetail.chargeType}
+					
+					if data.productDetail.deviceSupport != ''
+						.col-xs-4.bold.text-right.small
+							|อุปกรณ์ที่รองรับ
+								.col-xs-8
+									| #{data.productDetail.deviceSupport}
+					
+					if data.productDetail.material != ''
+						.col-xs-4.bold.text-right.small
+							|วัสดุ/ผิวสัมผัส
+								.col-xs-8 
+									| #{data.productDetail.material}
+					
+					if data.productDetail.width > 0
+						.col-xs-4.bold.text-right.small
+							|กว้าง
+								.col-xs-8 
+									| #{data.productDetail.width} ซม.
+					
+					if data.productDetail.length > 0
+						.col-xs-4.bold.text-right.small
+							|ยาว
+								.col-xs-8 
+									| #{data.productDetail.length} ซม.
+					
+					if data.productDetail.height > 0
+						.col-xs-4.bold.text-right.small
+							|สูง
+								.col-xs-8 
+									| #{data.productDetail.height} ซม.
+					
+					if data.productDetail.weight > 0
+						.col-xs-4.bold.text-right.small
+							|น้ำหนัก
+								.col-xs-8 
+									| #{data.productDetail.weight} กรัม
+					
+					if data.productDetail.grossWeight > 0}
+						.col-xs-4.bold.text-right.small
+							|น้ำหนักรวม
+								.col-xs-8 
+									| #{data.productDetail.grossWeight} กรัม
+					
+					if data.productDetail.madeIn != ''
+						.col-xs-4.bold.text-right.small
+							|ผลิตในประเทศ
+								.col-xs-8 
+									| #{data.productDetail.madeIn}
+					
+					if data.productDetail.standard != ''
+						.col-xs-4.bold.text-right.small
+							|มาตรฐาน
+								.col-xs-8 
+									| #{data.productDetail.standard}
+					
+					if data.productDetail.standard != ''
+						.col-xs-12.text-center
+							if data.productDetail.standard.strpos:'CE' !== false
+								img(src="https://src.remaxthailand.co.th/img/web/icon/logo-ce.png")
+							if data.productDetail.standard.strpos:'FCC' !== false
+								img(src="https://src.remaxthailand.co.th/img/web/icon/logo-fcc.png")
+							if data.productDetail.standard.strpos:'RoHS' !== false
+								img(src="https://src.remaxthailand.co.th/img/web/icon/logo-rohs.png")	
