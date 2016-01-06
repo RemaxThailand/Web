@@ -2,7 +2,8 @@ doctype 5
 html
 	head
 		title= data.title
-		meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='description', content='#{data.description}')
 		link(rel='shortcut icon', href='/favicon.ico', type='image/x-icon' )
 		link(rel='icon', href='/favicon.ico', type='image/x-icon' )
 		link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css')
@@ -10,12 +11,6 @@ html
 		link(rel='stylesheet', href='https://src.remaxthailand.co.th/libs/font-awesome/4.4.0/css/font-awesome.min.css')
 		script(src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js')
 		link(rel='stylesheet', href='#{data.websiteUrl}/stylesheets/style.css')
-		if data.screen == 'product'
-			meta(property='og:url', content='#{data.websiteUrl}#{data.productUrl}')
-			meta(property='og:type', content='product')
-			meta(property='og:title', content= data.productDetail.Name)
-			meta(property='og:description', content= data.productDetail.Name)
-			meta(property='og:image', content= data.productDetail.CoverImage)
 	body
 		input#apiUrl(type='hidden', value=data.apiUrl)
 		input#apiKey(type='hidden', value=data.apiKey)
@@ -41,7 +36,7 @@ html
 								a(href='#{data.websiteUrl}/about_us') เกี่ยวกับเรา
 							li(class=(data.screen == 'category' ? 'dropdown active' : 'dropdown'))
 								a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-									| ประเภทสินค้า 
+									| หมวดหมู่สินค้า 
 									span.caret
 								ul.dropdown-menu(role='menu')
 									each values in data.category

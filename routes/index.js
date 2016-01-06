@@ -2,20 +2,28 @@ var request = require('request');
 exports.index = function(req, res, data){
 	if (data.screen == 'index') {
 		data.title = 'หน้าหลัก : ' + data.systemName;
+		data.description = 'หน้าหลัก';
 	}else if(data.screen == 'claim_info'){
 		data.title = 'ข้อมูลการเคลม : ' + data.systemName;
+		data.description = 'ข้อมูลการเคลม';
 	}else if(data.screen == 'shop_register'){
 		data.title = 'สนใจเปิดช็อป : ' + data.systemName;
+		data.description = 'สนใจเปิดช็อป';
 	}else if(data.screen == 'payment'){
 		data.title = 'วิธีการชำระเงิน : ' + data.systemName;
+		data.description = 'วิธีการชำระเงิน';
 	}else if(data.screen == 'contact_us'){
 		data.title = 'ติดต่อเรา : ' + data.systemName;
+		data.description = 'ติดต่อเรา';
 	}else if(data.screen == 'about_us'){
 		data.title = 'เกี่ยวกับเรา : ' + data.systemName;
+		data.description = 'เกี่ยวกับเรา';
 	}else if(data.screen == 'warranty_condition'){
 		data.title = 'เงื่อนไขการรับประกัน : ' + data.systemName;
+		data.description = 'เงื่อนไขการรับประกัน';
 	}else if(data.screen == 'category'){
 		data.title = 'หมวดหมู่สินค้า : ' + data.systemName;
+		data.description = 'หมวดหมู่สินค้า';
 	}
 	
 	//## Get Category Menu ##//
@@ -108,6 +116,7 @@ exports.getProductByItem = function(req, res, data){
 				data.productDetail = json.result;
 				//res.send(data.product);
 				data.title = data.productDetail.name+' : '+ data.systemName;
+				data.description = data.productDetail.detail;
 				res.render(data.screen, { data: data});
 			} else{
 				data.error = error.message;

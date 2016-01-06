@@ -5,5 +5,9 @@ $(function() {
 		$(this).addClass('active');
 		$('#img_main').attr('src', $(this).attr('src').replace('100x100', '500x500') );
 	});
+	$('.numberFormat').each(function(){
+		var number = $(this).attr('data-value');
+		$(this).html(numberWithCommas(number)); 
+	});
 
 });
