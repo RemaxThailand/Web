@@ -39,6 +39,8 @@ html
 									| หมวดหมู่สินค้า 
 									span.caret
 								ul.dropdown-menu(role='menu')
+									li(class=(data.screen == 'category' && data.categorySelected == 'new' ? 'active' : ''))
+											a(href='#{data.websiteUrl}/category/new') New Arrivals
 									each values in data.category
 										li(class=(data.screen == 'category' && data.categorySelected == values.url ? 'active' : ''))
 											a(href='#{data.websiteUrl}/category/'+values.url)= values.name
