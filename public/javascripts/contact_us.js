@@ -1,6 +1,6 @@
 $(function() {
 
-	$('#txt-tel').ForceNumericOnly();
+	/*$('#txt-tel').ForceNumericOnly();
 
 	$(document).on('click', '#btn-sent_message', function(){
 		$('.required').parent().removeClass('has-error');
@@ -38,6 +38,6 @@ $(function() {
 			}, 'json');
 		}
 
-	});	
+	});	*/
 	
 });

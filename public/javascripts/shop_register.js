@@ -21,8 +21,8 @@ $(function() {
 });
 
 function loadProvince(){	
-	$.post('https://24fin-api.azurewebsites.net/master/thailand/province', {
-		apiKey: $('#api_key').val(),
+	$.post($('#apiUrlSite').val()+'/province/list', {
+		apiKey: $('#apiKey').val(),
 	}, function(data){
 		if(data.success) {
 			$('#province').html('');
@@ -31,7 +31,7 @@ function loadProvince(){
 				html += '<option>'+data.result[i].name+'</option>';
 			}
 			$('#province').html(html);
-			$('#province option:eq(1)').attr('selected', 'selected');
+			$('#province option:eq(0)').attr('selected', 'selected');
 		}
 	});
 }
@@ -131,8 +131,8 @@ function upload(file, index){
 }
 
 function register(){
-	$.post(apiUrl+'/register/shop/register', {
-		apiKey: apiKey,
+	$.post($('#apiUrlSite').val()+'/register/shop/register', {
+		apiKey: $('#apiKey').val(),
 		firstname: $('#firstname').val(),
 		lastname: $('#lastname').val(),
 		nickname: $('#nickname').val(),
@@ -145,8 +145,7 @@ function register(){
 			if(data.result[0].success){
 				$('#form-loading').slideUp();
 				$('#form-success').slideDown();
-			}
-			
+			}		
 		}
 	}, 'json').fail( function(xhr, textStatus, errorThrown) { console.log(xhr.statusText); });
 }

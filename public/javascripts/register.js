@@ -18,8 +18,8 @@ $(function() {
 });
 
 function loadProvince(){	
-	$.post('https://24fin-api.azurewebsites.net/master/thailand/province', {
-		apiKey: $('#api_key').val(),
+	$.post($('#apiUrlSite').val()+'/province/list', {
+		apiKey: $('#apiKey').val(),
 	}, function(data){
 		if(data.success) {
 			$('#province').html('');
@@ -28,7 +28,7 @@ function loadProvince(){
 				html += '<option>'+data.result[i].name+'</option>';
 			}
 			$('#province').html(html);
-			$('#province option:eq(1)').attr('selected', 'selected');
+			$('#province option:eq(0)').attr('selected', 'selected');
 		}
 	});
 }
@@ -87,25 +87,31 @@ function uploadFile(){
 }
 
 function upload(file, index){	
-	var fd = new FormData();
-	fd.append("file", file);
-	fd.append("index", index);
-	fd.append("mobile", $.trim($('#mobile').val()));
-	fd.append("tags", 'dealer,'+$.trim($('#firstname').val())+','+$.trim($('#lastname').val())+','+$('#province :selected').val()+','+$.trim($('#mobile').val()) );
-	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'https://powerupload.azurewebsites.net', true);
-
-	xhr.upload.onprogress = function(e) {
-		if (e.lengthComputable) {
+	var formData = new FormData();
+	formData.append("index", index);
+	formData.append("mobile", $.trim($('#mobile').val()));
+	formData.append("type", 'register' );
+	formData.append("dir", 'dealer' );
+    formData.append('myFile', file);
+    
+    var xhr = new XMLHttpRequest();
+    
+	xhr.open('POST', 'https://upload.remaxthailand.co.th', true);
+    
+    xhr.upload.onprogress = function(e) {
+      if (e.lengthComputable) {
 			var percentComplete = (e.loaded / e.total) * 100;
 			fileProgress[index] = percentComplete;
 			allProgress = (fileProgress[1]+fileProgress[2]+fileProgress[3]+fileProgress[4])/fileCount;
 			$('#progress').css('width', allProgress+'%').attr('aria-valuenow', allProgress);
-			//console.log(percentComplete + '% uploaded -> total = ' + (allProgress/fileCount) );
-		}
-	};
-
-	xhr.onload = function() {
+      }
+    };
+    
+    xhr.onerror = function(e) {
+		console.log('An error occurred while submitting the form. Maybe your file is too big');
+    };
+    
+    xhr.onload = function() {
 		if (this.status == 200) {
 			var json = JSON.parse(this.response);
 			if ( json.success ) {
@@ -115,31 +121,33 @@ function upload(file, index){
 				}
 			}
 		};
-	};
-	xhr.send(fd);
+		console.log(this.statusText);
+    };
+    
+    xhr.send(formData);
 }
 
 function register(){
-	var json = {};
-	json.Firstname = $.trim($('#firstname').val());
-	json.Lastname = $.trim($('#lastname').val());
-	json.Nickname = $.trim($('#nickname').val());
-	json.Province = $('#province :selected').val();
-	json.Phone = $.trim($('#mobile').val());
-	json.TimeToContact = $('#time :selected').val();
-	json.Address = $.trim($('#address').val());
-	json.Profile = $.trim($('#history').val());
-	json.Reason = $.trim($('#reason').val());
-	json.Expect = $.trim($('#expect').val());
-	json.Comment = $.trim($('#comment').val());
-	if ( fileName != '' ) json.PictureUrl = fileName;
-	$.post('http://power-api-test.azurewebsites.net/dealer/register', {
-		apiKey: 'PELI09WG-RNL0-3B0R-A2GD-1GRL6XZ2GVQ8',
-		value: JSON.stringify(json),
+	$.post($('#apiUrlSite').val()+'/dealer/register', {
+		apiKey: $('#apiKey').val(),
+		firstname: $.trim($('#firstname').val()),
+		lastname: $.trim($('#lastname').val()),
+		nickname: $.trim($('#nickname').val()),
+		province: $('#province :selected').val(),
+		mobile: $.trim($('#mobile').val()),
+		time: $('#time :selected').val(),
+		address: $.trim($('#address').val()),
+		history: $.trim($('#history').val()),
+		reason: $.trim($('#reason').val()),
+		expect: $.trim($('#expect').val()),
+		comment: $.trim($('#comment').val()),
+		images: fileName
 	}, function(data){
-		if(data.success) {
-			$('#form-loading').slideUp();
-			$('#form-success').slideDown();
+		if(data.success) {		
+			if(data.result[0].success){
+				$('#form-loading').slideUp();
+				$('#form-success').slideDown();
+			}
 		}
 	});
 }

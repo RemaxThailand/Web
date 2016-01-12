@@ -30,6 +30,7 @@ app.get('*', function(req, res) {
 	data.screen = 'index';
 	data.shop = config.shop;
 	data.apiUrl = config.apiUrl;
+	data.apiUrlSite = config.apiUrlSite;
 	data.apiKey = config.apiKey;
 	data.websiteUrl = config.systemUrl;
 	data.systemUrl = config.systemUrl;
@@ -38,7 +39,7 @@ app.get('*', function(req, res) {
 	data.Moment = require('moment');
 	data.viewsPath = config.viewsPath;
 	data.javascriptPath = config.javascriptPath;
-
+	
 	var url = req.url.split('/');
 	url = url.filter(function(n){ return n !== ''; });
 	data.url = url;

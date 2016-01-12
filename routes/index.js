@@ -24,6 +24,9 @@ exports.index = function(req, res, data){
 	}else if(data.screen == 'category'){
 		data.title = 'หมวดหมู่สินค้า : ' + data.systemName;
 		data.description = 'หมวดหมู่สินค้า';
+	}else if(data.screen == 'register'){
+		data.title = 'สมัครตัวแทนจำหน่าย : ' + data.systemName;
+		data.description = 'สมัครตัวแทนจำหน่าย';
 	}
 	
 	//## Get Category Menu ##//

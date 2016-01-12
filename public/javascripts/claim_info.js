@@ -539,8 +539,7 @@ function getCookie(cname) {
 };
  
 function checkUser(){ 	 	
-	$.post('http://24fin-api.azurewebsites.net/member/info/auth', {
-		apiKey: apiKey24,
+	$.post('https://24fin-api.azurewebsites.net/member/info/auth', {
 		authKey: getCookie("memberKey")
 	}, function(data){
 		if (data.success) {
