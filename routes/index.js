@@ -38,7 +38,7 @@ exports.index = function(req, res, data){
 			}
 		},
 		function (error, response, body) {
-			if (!error) {				
+			if (!error) {			
 				var json = JSON.parse(body);
 				data.category = json.result;
 				if(data.screen == 'category'){

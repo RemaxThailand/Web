@@ -26,12 +26,18 @@ if ('development' == app.get('env')) {
 
 app.get('*', function(req, res) {
 	//## Initial Data ##//
+	
+	/*config.apiUrl = 'http://127.0.0.1:9991';
+	config.apiUrlSite = 'https://api.remaxthailand.co.th';
+	config.apiKey = 'E2ECCC83-6B00-4741-986E-DEB0F57B33DB'; 
+	config.shop = 'POWERDDH-8888-8888-B620-48D3B6489999';*/
+	
 	data = {};
 	data.screen = 'index';
-	data.shop = config.shop;
-	data.apiUrl = config.apiUrl;
-	data.apiUrlSite = config.apiUrlSite;
-	data.apiKey = config.apiKey;
+	data.shop = 'POWERDDH-8888-8888-B620-48D3B6489999'; //config.shop;
+	data.apiUrl = 'http://127.0.0.1:9991'; //config.apiUrl;
+	data.apiUrlSite = 'https://api.remaxthailand.co.th'; //config.apiUrlSite;
+	data.apiKey = 'E2ECCC83-6B00-4741-986E-DEB0F57B33DB'; // config.apiKey;
 	data.websiteUrl = config.systemUrl;
 	data.systemUrl = config.systemUrl;
 	data.systemName = config.systemName;
@@ -40,7 +46,9 @@ app.get('*', function(req, res) {
 	data.viewsPath = config.viewsPath;
 	data.javascriptPath = config.javascriptPath;
 	
+	
 	var url = req.url.split('/');
+	console.log(url);
 	url = url.filter(function(n){ return n !== ''; });
 	data.url = url;
 	
