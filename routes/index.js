@@ -28,7 +28,7 @@ exports.index = function(req, res, data){
 		data.title = 'สมัครตัวแทนจำหน่าย : ' + data.systemName;
 		data.description = 'สมัครตัวแทนจำหน่าย';
 	}
-	
+
 	//## Get Category Menu ##//
 	try{
 		request.post({headers: { 'referer': 'https://'+req.headers['x-host'] }, url: data.apiUrl+'/category/info',
