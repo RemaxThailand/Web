@@ -436,7 +436,7 @@ function convertDataToArray(sign, data) {
 };
 
 function login() {
-	$.post('http://24fin-api.azurewebsites.net/member/login', {
+	$.post('https://24fin-api.azurewebsites.net/member/login', {
 		apiKey: apiKey24,
 		username: $.trim($('#username').val()),
 		password: $('#password').val(), 
@@ -467,7 +467,7 @@ function login() {
 }; 
 
 function logout() {
-	$.post('http://24fin-api.azurewebsites.net/member/logout', {
+	$.post('https://24fin-api.azurewebsites.net/member/logout', {
 		apiKey: apiKey24,
 		authKey: getCookie("memberKey")
 	}, function(data) {
