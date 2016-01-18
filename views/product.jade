@@ -4,7 +4,9 @@ block content
 	.pinBox.pinWell.padding-10
 		.row
 			.col-xs-12.col-sm-4.col-md-4.margin-bottom-15
-				img#img_main.img-thumbnail.img_box_shadow(src= (#{data.productDetail.cover} != '') ? 'https://img.remaxthailand.co.th/500x500/product/#{data.productDetail.sku}/#{data.productDetail.cover}' : 'https://src.remaxthailand.co.th/img/product/default.jpg', alt='#{data.productDetail.name}', data-zoom-image="yyy")
+				img.lazy#img_main.img-thumbnail.img_box_shadow(data-original=(typeof data.productDetail.cover != "undefined" && data.productDetail.cover != "") ? 'https://img.remaxthailand.co.th/500x500/product/#{data.productDetail.sku}/#{data.productDetail.cover}' : 'https://src.remaxthailand.co.th/img/product/default.jpg', src='https://src.remaxthailand.co.th/img/product/default.jpg',alt='#{data.productDetail.name}', data-zoom-image="yyy")
+				
+				
 				
 				if typeof data.productDetail.image != 'undefined' && data.productDetail.image != ''
 					.row
@@ -12,7 +14,9 @@ block content
 							.col-xs-3.col-sm-3.col-md-3
 								- var vImg= images.replace(' ','')
 								- var vCover= data.productDetail.cover.replace(' ','')
-								img.pointer.img-thumbnail(src='https://img.remaxthailand.co.th/100x100/product/#{data.productDetail.sku}/#{images.replace(' ','')}', alt='#{data.productDetail.name}', class='pointer img-thumbnail img_small_list' + ((vImg == vCover) ? " active" : "") )
+								img.lazy.pointer.img-thumbnail(data-original=https://img.remaxthailand.co.th/100x100/product/#{data.productDetail.sku}/#{images.replace(' ','')}', src='https://src.remaxthailand.co.th/img/product/default.jpg', alt='#{data.productDetail.name}', class='pointer img-thumbnail img_small_list' + ((vImg == vCover) ? " active" : ""))
+								
+								
 				
 				.row.margin-top-15
 					.col-xs-12.margin-bottom-15
