@@ -190,11 +190,7 @@ block content
 							.row.margin-top-15
 								each images in data.productDetail.imageDetail
 									.col-xs-12
-										//img.lazy.img-responsive.no-radius(alt="#{data.productDetail.name}", data-original='http://img.remaxthailand.co.th/product/#{data.productDetail.sku}/#{images}')
-										
-										img.img-responsive.no-radius(alt="#{data.productDetail.name}", src='http://img.remaxthailand.co.th/product/#{data.productDetail.sku}/#{images}')
-										
-										
-						
+										img.lazy.img-responsive.no-radius(alt="#{data.productDetail.name}", data-original='http://img.remaxthailand.co.th/product/#{data.productDetail.sku}/#{images}')					
+																
 						.text-center
 							img(src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://www.remaxthailand.co.th/product/#{data.productId}")
