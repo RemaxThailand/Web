@@ -31,8 +31,7 @@ $(function() {
 	//--------------End Check Remax Product----------------//
 	
 	$('img.lazy').lazyload({
-		effect : "fadeIn",
-		event: "scrollstop"
+		effect : "fadeIn"
 	});
 });
 
