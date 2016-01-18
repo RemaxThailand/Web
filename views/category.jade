@@ -7,7 +7,7 @@ block content
 				.pinItem
 					.pinBox.pinWell.margin-bottom-15
 						a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product))
-							img.img-responsive.img-popover(width='500', src= (typeof values.image != "undefined" && values.image != "") ? 'https://img.remaxthailand.co.th/300x300/product/'+values.sku+'/1.jpg' : 'https://src.remaxthailand.co.th/img/product/default.jpg')
+							img.lazy.img-responsive.img-popover(width='500', src= (typeof values.image != "undefined" && values.image != "") ? 'https://img.remaxthailand.co.th/300x300/product/'+values.sku+'/1.jpg' : 'https://src.remaxthailand.co.th/img/product/default.jpg')
 						.message
 							.margin-top-5.margin-bottom-5
 								.text-center
