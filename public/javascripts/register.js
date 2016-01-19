@@ -91,7 +91,7 @@ function upload(file, index){
 	formData.append("index", index);
 	formData.append("mobile", $.trim($('#mobile').val()));
 	formData.append("type", 'register' );
-	formData.append("dir", 'dealer' );
+	formData.append("dir", 'agent' );
     formData.append('myFile', file);
     
     var xhr = new XMLHttpRequest();
