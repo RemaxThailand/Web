@@ -9,7 +9,7 @@ var http = require('http')
 	, routes = require('./routes');
 
 global.config = require('./config.js');
-
+res.redirect(301, 'https://www.remaxthailand.co.th');
 var app = express();
 
 app.set('port', config.port || 9999);
