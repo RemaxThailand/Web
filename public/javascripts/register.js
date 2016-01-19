@@ -141,6 +141,7 @@ function register(){
 		reason: $.trim($('#reason').val()),
 		expect: $.trim($('#expect').val()),
 		comment: $.trim($('#comment').val()),
+		profile: $.trim($('#profile').val()),
 		images: fileName
 	}, function(data){
 		if(data.success) {		
