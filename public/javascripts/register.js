@@ -108,6 +108,7 @@ function upload(file, index){
     };
     
     xhr.onerror = function(e) {
+		console.log(e);
 		console.log('An error occurred while submitting the form. Maybe your file is too big');
     };
     
