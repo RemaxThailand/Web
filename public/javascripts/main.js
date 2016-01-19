@@ -36,7 +36,7 @@ $(function() {
 	
 	$('img.lazy').lazyload({
 		effect : "fadeIn",
-		event: "scrollstop"
+		event: "scrollsdown"
 	});  
 	
 });
