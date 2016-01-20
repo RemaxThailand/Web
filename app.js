@@ -19,7 +19,7 @@ app.use(favicon(__dirname + '/favicon.ico'));
 app.use(methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(requireHTTPS);
+//app.use(requireHTTPS);
 
 if ('development' == app.get('env')) {
 	app.use(errorHandler());
@@ -71,9 +71,9 @@ server.listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });
 
-function requireHTTPS(req, res, next) {
+/*function requireHTTPS(req, res, next) {
     if (!req.get('x-arr-ssl')) {
         return res.redirect('https://www.' + req.get('host') + req.url);
     }
     next();
-};
+};*/
