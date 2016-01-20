@@ -40,8 +40,7 @@ app.get('*', function(req, res) {
 	//data.Moment = require('moment');
 	data.viewsPath = config.viewsPath;
 	data.javascriptPath = config.javascriptPath;
-	
-	
+
 	var url = req.url.split('/');
 	url = url.filter(function(n){ return n !== ''; });
 	data.url = url;
@@ -71,8 +70,8 @@ server.listen(app.get('port'), function(){
 });
 
 function requireHTTPS(req, res, next) {
-    if (req.get('host') == 'remaxthailand') {
-        return res.redirect('https://www.remaxthailand'+ req.url);
+    if (req.get('x-host') == 'remaxthailand.co.th') {
+        return res.redirect('https://www.remaxthailand.co.th'+ req.url);
     }
     next();
 };
