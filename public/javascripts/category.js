@@ -7,3 +7,6 @@ $(function() {
 		$(this).html(numberWithCommas(number)); 
 	});
 });
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
