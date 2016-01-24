@@ -1,7 +1,6 @@
 $(function() {
 	$('img.lazy').lazyload({
-		effect : "fadeIn",
-		event: "scrolltop"
+		effect : "fadeIn"
 	});
 	$('.numberFormat').each(function(){
 		var number = $(this).attr('data-value');
