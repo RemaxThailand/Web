@@ -2,49 +2,50 @@ extends layout
 
 block content
 	.dv-row#dv-product.padding-top-15
-		if data.product != '' && data.product != undefined
-			each values in data.product
-				.pinItem
-					.pinBox.pinWell.margin-bottom-15 
-						a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product))
-							img.lazy.img-responsive.img-popover(data-original=(typeof values.image != "undefined" && values.image != "") ? 'https://img.remaxthailand.co.th/500x500/product/'+values.sku+'/'+values.image : 'https://src.remaxthailand.co.th/img/product/default.jpg' ,src='https://src.remaxthailand.co.th/img/product/default.jpg')
-						
-						.message
-							.margin-top-5.margin-bottom-5
-								.text-center
-									if values.isNew
-										img(src='https://src.remaxthailand.co.th/img/web/gif/new.gif')
-									b.text-info
-										a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product)) #{values.name}
-								if values.sku != '' && values.sku.substr(0,1) == 'D'
-									.margin-top-5.pull-left #{values.sku}
-									.margin-top-5.pull-right.no-wrap
-										if values.warranty > 0
-											if values.warranty >= 365
-												| รับประกัน #{values.warranty/365} ปี
-											else if values.warranty >= 30
-												| รับประกัน #{values.warranty/30} เดือน
-											else
-												| รับประกัน #{values.warranty} วัน
-							.clearfix.line.margin-bottom-5
-							.pull-left.no-wrap
-								if values.stock <= 0 
-									b.text-danger สินค้าหมด 
-									| : 
-								| ราคาปลีก 								
-								if values.price == 0
-									b.text-danger ยังไม่กำหนด
-								else
-									b.text-danger.numberFormat(data-value="#{values.price}")
-								if values.price != 0
-									|  บาท
-							.pull-right.no-wrap
-								| ราคาส่ง(3ชิ้น)							
-								if values.price1 == 0
-									b.text-danger ยังไม่กำหนด
-								else
-									b.text-danger.numberFormat(data-value="#{values.price1}")
-								if values.price1 != 0
-									|  บาท
+		.pinRow
+			if data.product != '' && data.product != undefined
+				each values in data.product
+					.pinItem
+						.pinBox.pinWell.margin-bottom-15 
+							a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product))
+								img.lazy.img-responsive.img-popover(data-original=(typeof values.image != "undefined" && values.image != "") ? 'https://img.remaxthailand.co.th/500x500/product/'+values.sku+'/'+values.image : 'https://src.remaxthailand.co.th/img/product/default.jpg' ,src='https://src.remaxthailand.co.th/img/product/default.jpg')
+							
+							.message
+								.margin-top-5.margin-bottom-5
+									.text-center
+										if values.isNew
+											img(src='https://src.remaxthailand.co.th/img/web/gif/new.gif')
+										b.text-info
+											a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product)) #{values.name}
+									if values.sku != '' && values.sku.substr(0,1) == 'D'
+										.margin-top-5.pull-left #{values.sku}
+										.margin-top-5.pull-right.no-wrap
+											if values.warranty > 0
+												if values.warranty >= 365
+													| รับประกัน #{values.warranty/365} ปี
+												else if values.warranty >= 30
+													| รับประกัน #{values.warranty/30} เดือน
+												else
+													| รับประกัน #{values.warranty} วัน
+								.clearfix.line.margin-bottom-5
+								.pull-left.no-wrap
+									if values.stock <= 0 
+										b.text-danger สินค้าหมด 
+										| : 
+									| ราคาปลีก 								
+									if values.price == 0
+										b.text-danger ยังไม่กำหนด
+									else
+										b.text-danger.numberFormat(data-value="#{values.price}")
+									if values.price != 0
+										|  บาท
+								.pull-right.no-wrap
+									| ราคาส่ง(3ชิ้น)							
+									if values.price1 == 0
+										b.text-danger ยังไม่กำหนด
+									else
+										b.text-danger.numberFormat(data-value="#{values.price1}")
+									if values.price1 != 0
+										|  บาท
 
-							.clearfix
+								.clearfix
