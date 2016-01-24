@@ -28,11 +28,7 @@ $(function() {
 		$(".button-check_remax_product").fadeIn();
 		$(".back-remax_barcode").hide();
 	});
-	//--------------End Check Remax Product----------------//
-	
-	$('img.lazy').lazyload({
-		effect : "fadeIn"
-	}); 
+	//--------------End Check Remax Product----------------// 
 	
 	/* $('img.lazy').lazyload({
 		effect : "fadeIn",
