@@ -5,7 +5,7 @@ $(function() {
 		$(this).html(numberWithCommas(number)); 
 	});
 });
-$( document ).ready(function() {
+$( document ).load(function() {
     console.log( "ready!" );
 	$('img.lazy').lazyload({
 		effect : "fadeIn"
