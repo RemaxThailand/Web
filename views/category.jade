@@ -4,9 +4,9 @@ block content
 	#dv-product.padding-top-15
 		if data.product != '' && data.product != undefined
 			each values in data.product
-				.product-row.col-xs-6.col-sm-3.col-md-3.col-lg-3.margin-bottom-15
+				.product-row.col-xs-6.col-sm-3.col-md-3.col-lg-3
 					.dv-box.well.well_thin.well_white
-						.dv-thumb.margin-bottom-5.padding-top-5.text-center
+						.dv-thumb.text-center
 							a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product))
 								img.lazy.img-responsive.img-popover(data-original=(typeof values.image != "undefined" && values.image != "") ? 'https://img.remaxthailand.co.th/500x500/product/'+values.sku+'/'+values.image : 'https://src.remaxthailand.co.th/img/product/default.jpg' ,src='https://src.remaxthailand.co.th/img/product/default.jpg')
 						
