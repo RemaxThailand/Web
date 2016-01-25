@@ -16,7 +16,7 @@ block content
 									if values.isNew
 										img(src='https://src.remaxthailand.co.th/img/web/gif/new.gif')
 									b.text-info
-										a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product)) #{values.name.substr(0,8)}
+										a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product)) #{values.name}
 								if values.sku != '' && values.sku.substr(0,1) == 'D'
 									.margin-top-5.pull-left #{values.sku}
 									.margin-top-5.pull-right.no-wrap
