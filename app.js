@@ -71,7 +71,7 @@ server.listen(app.get('port'), function(){
 
 function requireHTTPS(req, res, next) {
     if (req.get('x-host') == 'remaxthailand.co.th') {
-        return res.redirect('https://www.remaxthailand.co.th/'+ req.url);
+        return res.redirect('https://www.remaxthailand.co.th');
     }
     next();
 };
