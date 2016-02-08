@@ -19,7 +19,7 @@ app.use(favicon(__dirname + '/favicon.ico'));
 app.use(methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(requireHTTPS);
+app.use(requireHTTPS);
 
 if ('development' == app.get('env')) {
 	app.use(errorHandler());
