@@ -75,7 +75,7 @@ html
 		script(src='https://src.remaxthailand.co.th/libs/moment/2.10.6/moment-with-locales.min.js')
 		script(src='https://src.remaxthailand.co.th/libs/bootstrap/3.3.5/js/bootstrap.min.js')
 		script(src='#{data.websiteUrl}/javascripts/main.js')
-		if (data.script != '')
+		if (data.script != '' && typeof data.script != 'undefined')
 			script(src='#{data.websiteUrl}#{data.script}')
 		
 			
