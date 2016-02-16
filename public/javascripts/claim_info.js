@@ -341,7 +341,7 @@ function submitClaim(){
 function addClaim(){
 /* 	$.post($('#apiUrlSite').val()+'/claim/add', {
 		apiKey: $('#apiKey').val(),
-		shop: shop,
+		shop: $('#shop').val(),
 		from : 'W', // W is From Website
 		barcode: $('#barcode').html(),
 		product: $('#product').html(), 
@@ -404,7 +404,7 @@ function addClaim(){
 				}
 				else {
 					for(i=0; i<=3; i++) modal.find('.img'+i).hide();
-				}//<<<<<<
+				}*/
 				$('#form-loading').hide();
 				$('#dv-claim_info').show();
 				//$('#dv-track').show();
@@ -412,22 +412,7 @@ function addClaim(){
 			}
 	}, 'json').fail( function(xhr, textStatus, errorThrown) { console.log(xhr.statusText); }); */
 	
-	
-		$.post($('#apiUrlSite').val()+'/province/list', {
-		apiKey: $('#apiKey').val()
-	}, function(data){
-			if (data.success) {
-				var html = '';
-				for( i=0; i<data.result.length; i++ ) {
-					var result = data.result[i];
-					html += '<option value="'+ result.id +'"'+ 
-						((result.name == $('#province').attr('data-selected') || ($('#province').attr('data-selected') == '' && result.id == '1')) ? ' selected' : '')
-						+'>'+ result.name +'</option>';
-				}
-				$('#province').html( html );
-				loadDistrict()				
-			}
-	}, 'json').fail( function(xhr, textStatus, errorThrown) { console.log(xhr.statusText); });
+
 	
 };
 
