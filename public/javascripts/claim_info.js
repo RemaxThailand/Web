@@ -287,7 +287,8 @@ function upload(file, index){
 				fileName += json.filename + '|';
 				if (allProgress == 100){
 					allProgress = 0;
-					addClaim();
+					//addClaim();
+					console.log('its good')
 				}
 			}
 		};
