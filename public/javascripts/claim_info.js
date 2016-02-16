@@ -1,10 +1,4 @@
-//var shop = '09A3C5B1-EBF7-443E-B620-48D3B648294E';
-var shop = 'POWERDDH-8888-8888-B620-48D3B6489999';
-var apiKey = 'PELI09WG-RNL0-3B0R-A2GD-1GRL6XZ2GVQ8';
-var apiKeyPower = 'BE12B369-0963-40AD-AA40-D68A7516A37B';
 var apiKey24 = '91ADEBD2-1A72-4616-B8C7-8659A3618197';
-//var apiUrl = 'https://api-test.powerdd.com';
-var apiUrl = 'https://api.powerdd.com';
 
 var fileCount = 0;
 var fileProgress = {};
@@ -344,8 +338,8 @@ function submitClaim(){
 };
 
 function addClaim(){	 
-	$.post(apiUrl+'/claim/add', {
-		apiKey: apiKeyPower,
+	$.post($('#apiUrlSite').val()+'/claim/add', {
+		apiKey: $('#apiKey').val(),
 		shop: shop,
 		from : 'W', // W is From Website
 		barcode: $('#barcode').html(),
@@ -477,26 +471,12 @@ function logout() {
 	});
 }; 
 
-function simpleLog(){
-	$.post(apiUrl+'/webclient/simplelog', {
-		apiKey: apiKeyPower,
-		name: $('#username').val(),
-		value: 'userClaim'
-	}, function(data){
-			if (data.success) {
-				$('#dv-claim_info').hide();
-				$('#dv-track').hide();
-				$('#alert-trackno').show();			
-			}
-	}, 'json').fail( function(xhr, textStatus, errorThrown) { console.log(xhr.statusText); });
-};
-
 function loadAdress(){
 	if ($('#username').val() != '' && typeof $('#username').val() != 'undefined'){
 		_username = $('#username').val();
 	}
-	$.post(apiUrl+'/claim/customerAddress', {
-		apiKey: apiKeyPower,
+	$.post($('#apiUrlSite').val()+'/claim/customerAddress', {
+		apiKey: $('#apiKey').val(),
 		username: _username
 	}, function(data){
 			if (data.success) {
@@ -569,8 +549,8 @@ function checkUser(){
 };
 
 function barcodeExist(){	 
-	$.post(apiUrl+'/claim/barcodeExist', {
-		apiKey: apiKeyPower,
+	$.post($('#apiUrlSite').val()+'/claim/barcodeExist', {
+		apiKey: $('#apiKey').val(),
 		barcode: $.trim($('#txt-barcode').val())
 	}, function(data){
 		if (data.success) {
