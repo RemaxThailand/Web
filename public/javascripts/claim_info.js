@@ -339,7 +339,7 @@ function submitClaim(){
 };
 
 function addClaim(){
-/* 	$.post($('#apiUrlSite').val()+'/claim/add', {
+$.post($('#apiUrlSite').val()+'/claim/add', {
 		apiKey: $('#apiKey').val(),
 		shop: $('#shop').val(),
 		from : 'W', // W is From Website
@@ -410,10 +410,7 @@ function addClaim(){
 				//$('#dv-track').show();
 				
 			}
-	}, 'json').fail( function(xhr, textStatus, errorThrown) { console.log(xhr.statusText); }); 
-	
-
-	
+	}, 'json').fail( function(xhr, textStatus, errorThrown) { console.log(xhr.statusText); }); 	
 };
 
 
