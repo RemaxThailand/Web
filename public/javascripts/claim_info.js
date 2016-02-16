@@ -287,8 +287,8 @@ function upload(file, index){
 				fileName += json.filename + '|';
 				if (allProgress == 100){
 					allProgress = 0;
-					//addClaim();
-					console.log('its good')
+					addClaim();
+					
 				}
 			}
 		};
@@ -338,7 +338,8 @@ function submitClaim(){
 	
 };
 
-function addClaim(){	 
+function addClaim(){
+console.log('addClaim')	
 	$.post($('#apiUrlSite').val()+'/claim/add', {
 		apiKey: $('#apiKey').val(),
 		shop: shop,
