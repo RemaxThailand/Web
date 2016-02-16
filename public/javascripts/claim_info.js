@@ -410,7 +410,7 @@ function addClaim(){
 				//$('#dv-track').show();
 				
 			}
-	}, 'json').fail( function(xhr, textStatus, errorThrown) { console.log(xhr.statusText); }); */
+	}, 'json').fail( function(xhr, textStatus, errorThrown) { console.log(xhr.statusText); }); 
 	
 
 	
