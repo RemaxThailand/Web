@@ -1,8 +1,11 @@
 var isCheck = false;
 var device = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ? 'mobile' : 'desktop';
 $(function() {
+	$('.hidden').removeClass('hidden').hide();
 	
-	if (device == 'desktop') {
+	console.log($( window ).width())
+	
+	if ($( window ).width() > 1000) {
 		$('#mainPin').addClass('margin-right-1');
 		$('#mainPin').scrollToFixed({ marginTop: 20 });
 		
@@ -16,9 +19,7 @@ $(function() {
 			});
 		}
 		
-	}
-	
-	$('.hidden').removeClass('hidden').hide();
+	}	
 		//--------------Check Remax Product----------------//
 	$(document).on('keydown', '#txt-remax_barcode', function(e){
 		var key = e.charCode || e.keyCode || 0;
