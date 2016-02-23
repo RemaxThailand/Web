@@ -3,8 +3,6 @@ var device = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.
 $(function() {
 	$('.hidden').removeClass('hidden').hide();
 	
-	console.log($( window ).width())
-	
 	if ($( window ).width() > 1000) {
 		$('#mainPin').addClass('margin-right-1');
 		$('#mainPin').scrollToFixed({ marginTop: 20 });
