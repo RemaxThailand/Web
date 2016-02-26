@@ -136,6 +136,6 @@ function checkRemaxProduct(){
 			$("#product-load").hide();
 			$(".back-remax_barcode").show();
 		}
-
+		$('#shopBox').removeClass('margin-bottom-15');
 	},'json').fail( function(xhr, textStatus, errorThrown) { console.log(xhr.statusText); });
 };
