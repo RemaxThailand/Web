@@ -14,6 +14,8 @@ block content
 								.text-center
 									if values.isNew
 										img(src='https://src.remaxthailand.co.th/img/web/gif/new.gif')
+									if values.isStockUpdate
+										img(src='https://src.remaxthailand.co.th/img/web/gif/update.gif')
 									b.text-info
 										a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product)) #{values.name}
 								if values.sku != '' && values.sku.substr(0,1) == 'D'
