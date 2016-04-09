@@ -31,11 +31,11 @@ function loadImageProduct(){
 			if(data.result.length != 0){
 				for(i=0; i < data.result.length; i++) {
 					if(device == 'desktop'){
-						if(data.result[i].image != "" || data.result[i].image != null){
+						if(data.result[i].image != "" && typeof data.result[i].image != null){
 							$('img#'+data.result[i].product).attr('src', 'https://img.remaxthailand.co.th/500x500/product/'+data.result[i].sku+'/'+data.result[i].image)
 						}
 					} else{
-						if(data.result[i].image != "" || data.result[i].image != null){
+						if(data.result[i].image != "" && typeof data.result[i].image != null){
 							$('img#'+data.result[i].product).addClass('lazy'); 
 							$('img#'+data.result[i].product).attr('data-original', 'https://img.remaxthailand.co.th/500x500/product/'+data.result[i].sku+'/'+data.result[i].image)
 							$('img.lazy').lazyload();
