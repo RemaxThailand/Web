@@ -2,7 +2,7 @@ var isCheck = false;
 var device = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ? 'mobile' : 'desktop';
 $(function() {
 	$('.hidden').removeClass('hidden').hide();
-	$('.pinItem#premium').hide()
+	//$('.pinItem#premium').hide()
 	$('#mainPin').addClass('margin-right-1');
 	/*if ($( window ).width() > 1000) {
 		$('#mainPin').addClass('margin-right-1');
