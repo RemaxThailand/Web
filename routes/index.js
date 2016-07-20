@@ -27,6 +27,9 @@ exports.index = function(req, res, data){
 	}else if(data.screen == 'register'){
 		data.title = 'สมัครตัวแทนจำหน่าย : ' + data.systemName;
 		data.description = 'สมัครตัวแทนจำหน่าย';
+	}else if(data.screen == 'premium_product'){
+		data.title = 'สินค้าพรีเมี่ยม : ' + data.systemName;
+		data.description = 'สินค้าพรีเมี่ยม';
 	}
 
 	//## Get Category Menu ##//
