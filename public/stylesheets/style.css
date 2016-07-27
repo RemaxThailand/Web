@@ -86,3 +86,16 @@ resize:none;
     transition: background 0.5s ease-in 0s;
     z-index: 200;
 }
+.google-maps {
+    position: relative;
+    padding-bottom: 90%; // (450 ÷ 500 = 0.9 = 90%)
+    height: 0;
+    overflow: hidden;
+}
+.google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
