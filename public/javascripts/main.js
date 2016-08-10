@@ -1,24 +1,25 @@
 var isCheck = false;
 var device = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ? 'mobile' : 'desktop';
 $(function() {
+	$('#newsModal').modal();
 	$('.hidden').removeClass('hidden').hide();
 	//$('.pinItem#premium').hide()
 	$('#mainPin').addClass('margin-right-1');
 	/*if ($( window ).width() > 1000) {
 		$('#mainPin').addClass('margin-right-1');
 		$('#mainPin').scrollToFixed({ marginTop: 20 });
-		
+
 		if(window.location.pathname.length < 2){
 			$(window).scroll(function(){
-				if ($(this).scrollTop() > 25) {		
+				if ($(this).scrollTop() > 25) {
 					$('.navbar').fadeOut(100);
-				} else {		
+				} else {
 					$('.navbar').slideDown(500);
 				}
 			});
 		}
-		
-	}*/	
+
+	}*/
 		//--------------Check Remax Product----------------//
 	$(document).on('keydown', '#txt-remax_barcode', function(e){
 		var key = e.charCode || e.keyCode || 0;
@@ -46,17 +47,17 @@ $(function() {
 		$(".button-check_remax_product").fadeIn();
 		$(".back-remax_barcode").hide();
 	});
-	//--------------End Check Remax Product----------------// 
-	
+	//--------------End Check Remax Product----------------//
+
 	$('img.lazy').lazyload({
 		effect : "fadeIn"
 	});
-	
+
 	/* $('img.lazy').lazyload({
 		effect : "fadeIn",
 		event: "scrollstop"
 	});  */
-	
+
 });
 
 function numberWithCommas(x) {
@@ -117,8 +118,8 @@ function checkRemaxProduct(){
 							$("#product-load").hide();
 							$(".back-remax_barcode").show();
 
-						}						
-					}			
+						}
+					}
 			}else{
 				if(data.result.noSN){
 					$('#remax_nosn').show();
@@ -130,7 +131,7 @@ function checkRemaxProduct(){
 					$("#product-load").hide();
 					$(".back-remax_barcode").show();
 
-				}	
+				}
 			}
 		}else{
 			$('#remax_not_exist').show();

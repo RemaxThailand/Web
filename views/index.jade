@@ -1,32 +1,43 @@
 extends layout
 
 block content
-	.col-md-3
-		.row.pinRow#mainPin
-			.pinItem
-				.pinBox#shopBox.pinWell.margin-bottom-15
-					a(href='#{data.systemUrl}/premium_product')
-						img.img-responsive(src='https://src.remaxthailand.co.th/img/web/box/premium_product.jpg')
-					.message-lg.text-center สินค้าพรีเมี่ยม
-			.pinItem
-				.pinBox#shopBox.pinWell.margin-bottom-15
-					a(href='#{data.systemUrl}/shop_register')
-						img.img-responsive(src='https://src.remaxthailand.co.th/img/web/box/shop_register.jpg')
-					.message-lg.text-center สนใจเปิดช็อป
-			include check_remax_product_box
-			
-	.col-md-9
-		.row.pinRow
-			.pinItem
-				.pinBox.pinWell.margin-bottom-15
-					a(href='#{data.systemUrl}/category/new')
-						img.img-responsive(src='https://src.remaxthailand.co.th/img/category/new_arrivals/1.jpg')
-					.message-lg.text-center สินค้ามาใหม่
-			each values in data.category
-				.pinItem(id=values.url)					
-					.pinBox.pinWell.margin-bottom-15
-						a(href='#{data.systemUrl}/category/'+values.url)
-							img.img-responsive(src='https://src.remaxthailand.co.th/img/category/'+values.url+'/1.jpg')
-						.message-lg.text-center= values.name
-						
-	
+    .col-md-3
+        .row.pinRow#mainPin
+            .pinItem
+                .pinBox#shopBox.pinWell.margin-bottom-15
+                    a(href='#{data.systemUrl}/premium_product')
+                        img.img-responsive(src='https://src.remaxthailand.co.th/img/web/box/premium_product.jpg')
+                    .message-lg.text-center สินค้าพรีเมี่ยม
+            .pinItem
+                .pinBox#shopBox.pinWell.margin-bottom-15
+                    a(href='#{data.systemUrl}/shop_register')
+                        img.img-responsive(src='https://src.remaxthailand.co.th/img/web/box/shop_register.jpg')
+                    .message-lg.text-center สนใจเปิดช็อป
+            include check_remax_product_box
+
+    .col-md-9
+        .row.pinRow
+            .pinItem
+                .pinBox.pinWell.margin-bottom-15
+                    a(href='#{data.systemUrl}/category/new')
+                        img.img-responsive(src='https://src.remaxthailand.co.th/img/category/new_arrivals/1.jpg')
+                    .message-lg.text-center สินค้ามาใหม่
+            each values in data.category
+                .pinItem(id=values.url)					
+                    .pinBox.pinWell.margin-bottom-15
+                        a(href='#{data.systemUrl}/category/'+values.url)
+                            img.img-responsive(src='https://src.remaxthailand.co.th/img/category/'+values.url+'/1.jpg')
+                        .message-lg.text-center= values.name
+// Modal
+#newsModal.modal.fade(tabindex='-1', role='dialog')
+    .modal-dialog.modal-md(role='document')
+        .modal-content
+            .modal-body
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+                img.img-responsive.no-radius(src='https://src.remaxthailand.co.th/img/web/box/2016.jpg')
+            //
+                div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                <a href="http://www.remaxthailand.co.th/register"><span class="btn btn-primary">สมัครตัวแทนจำหน่าย</span></a>
+                </div>
