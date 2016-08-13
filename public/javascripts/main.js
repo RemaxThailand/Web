@@ -1,7 +1,7 @@
 var isCheck = false;
 var device = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ? 'mobile' : 'desktop';
 $(function() {
-	$('#newsModal').modal();
+	//$('#newsModal').modal();
 	$('.hidden').removeClass('hidden').hide();
 	//$('.pinItem#premium').hide()
 	$('#mainPin').addClass('margin-right-1');
