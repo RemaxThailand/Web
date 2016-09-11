@@ -1,0 +1,50 @@
+.pinBox.pinWell.padding-10.col-xs-12.col-sm-12.col-md-12.col-lg-12
+    h1.page-header.font-28.margin-top-10 ตรวจสอบสถานะการเคลม
+    #dv-claimno
+        form.form-horizontal(role='form')
+            .form-group
+                .col-sm-6.col-md-offset-3.margin-top-15
+                    input#txt-claimno.form-control.required(type='text', placeholder='เลขที่เคลม')
+            .form-group
+                .text-center
+                    span#btn-claimno.btn.btn-warning ตรวจสอบ
+    #alert-load.alert.alert-info.text-center.hidden.margin-bottom-30(role='alert')
+        i.fa.fa-spinner.fa-pulse
+        |  กรุณารอสักครู่ค่ะ
+    #alert-not_exist.alert.alert-danger.text-center.hidden.margin-bottom-30(role='alert')
+        | ไม่พบข้อมูลค่ะ
+    .col-xs-6.col-sm-6.col-md-6.col-lg-6.col-md-offset-3
+        #dv-claim_info.panel.panel-default.hidden
+            .panel-heading รายละเอียด
+            .panel-body
+                p#claim-ClaimDate.text-right
+                p#claim-ClaimNo
+                p#claim-ClaimStatus
+                p#claim-RecieveDate
+                p#claim-SentDate
+                p#claim-ProductName
+                p#claim-Barcode
+                p#claim-Description
+                .row
+                    .col-xs-3.col-md-3.img0
+                        a(target='_blank', href='')
+                            img.img-responsive.img-rounded(src='')
+                    .col-xs-3.col-md-3.img1
+                        a(target='_blank', href='')
+                            img.img-responsive.img-rounded(src='')
+                    .col-xs-3.col-md-3.img2
+                        a(target='_blank', href='')
+                            img.img-responsive.img-rounded(src='')
+                    .col-xs-3.col-md-3.img3
+                        a(target='_blank', href='')
+                            img.img-responsive.img-rounded(src='')
+                p.margin-top-15
+                    strong ที่อยู่
+                .margin-left-5
+                    p#sum-name
+                    p#sum-address
+                    p#sum-address2
+                    p#sum-location
+                    p#sum-tel
+                    p#sum-email
+                    p#sum-line
