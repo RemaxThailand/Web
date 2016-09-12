@@ -45,7 +45,7 @@ app.get('*', function(req, res) {
 	url = url.filter(function(n){ return n !== ''; });
 	data.url = url;
 	if ( url.length != undefined && url.length >= 1 ) {
-		data.screen = url[0];		
+		data.screen = url[0];
 		fs.exists(data.viewsPath + data.screen + '.jade', function (exists) {
 			if (exists) {			
 				fs.exists(data.javascriptPath + data.screen + '.js', function (exists) {
@@ -55,7 +55,12 @@ app.get('*', function(req, res) {
 				});	
 			}
 			else {
-				routes.index(req, res, data);
+				if(data.screen == 'google84c95714fef4b8ba.html'){
+					res.send('google-site-verification: google84c95714fef4b8ba.html');
+				}
+				else {
+					routes.index(req, res, data);
+				}
 			}
 		});
 	}
