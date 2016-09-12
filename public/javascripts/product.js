@@ -1,7 +1,7 @@
 $(function() {
 
-    //$(document).on('copy', '.container', function(e) { copyToClipboard(); return false; });
-    //$(document).on('cut', '.container', function(e) { copyToClipboard(); return false; });
+    $(document).on('copy', '.container', function(e) { copyToClipboard(); return false; });
+    $(document).on('cut', '.container', function(e) { copyToClipboard(); return false; });
 
     $(document).on('click', '.img_small_list', function() {
         $('.img_small_list.active').removeClass('active');

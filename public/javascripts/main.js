@@ -163,7 +163,8 @@ function checkRemaxProduct() {
 
 function copyToClipboard() {
     var aux = document.createElement("input");
-    aux.setAttribute("value", "กรุณาอย่าคัดลอกข้อความค่ะ (เว็บที่คัดลอกข้อความไปใช้โดยไม่ได้รับอนุญาต คือ csctoh0me.com)");
+    //aux.setAttribute("value", "กรุณาอย่าคัดลอกข้อความค่ะ (เว็บที่คัดลอกข้อความไปใช้โดยไม่ได้รับอนุญาต คือ csctoh0me.com)");
+    aux.setAttribute("value", "กรุณาอย่าคัดลอกข้อความค่ะ");
     document.body.appendChild(aux);
     aux.select();
     document.execCommand("copy");
