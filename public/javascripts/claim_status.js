@@ -1,7 +1,4 @@
 var apiUrl = 'http://api.remaxthailand.co.th';
-var shop = 'POWERDDH-8888-8888-B620-48D3B6489999';
-var apiKeyPower = 'BE12B369-0963-40AD-AA40-D68A7516A37B';
-
 var claimInfo;
 var chkClaim = false;
 
@@ -31,8 +28,8 @@ $(function() {
 
 function checkClaim(){
 	$.post(apiUrl+'/claim/info', {
-		apiKey: apiKeyPower,
-		shop: shop,
+		apiKey: $('#apiKey').val(),
+		shop: '',
 		id: $('#txt-claimno').val(),
 		barcode: '',
 		claimdate_from: '',
@@ -42,20 +39,23 @@ function checkClaim(){
 		lineid: ''
 	}, function(data){
 			if (data.success) {
-				claimInfo = data.result[0];
-				productInfo(data.result[0].barcode);
+				if(typeof data.result[0][0] != undefined){
+					claimInfo = data.result[0][0];
+					productInfo(data.result[0][0].barcode);
+				}else{
+					$('#alert-not_exist').show();
+					$("#alert-load").hide();
+				}
 			}else{
-
 				$('#alert-not_exist').show();
 				$("#alert-load").hide();
-
 			}
 	}, 'json').fail( function(xhr, textStatus, errorThrown) { console.log(xhr.statusText); });
 };
 
 function productInfo(barcode_info){
 	$.post(apiUrl+'/warranty/info', {
-		apiKey: apiKeyPower,
+		apiKey: $('#apiKey').val(),
 		barcode: barcode_info
 	}, function(data){
 		if (data.success) {
@@ -109,8 +109,12 @@ function claimInformation(data){
 	$('#claim-ClaimNo').html('<b>เลขที่การเคลม : </b>'+ claimInfo.claimNo);
 	$('#claim-ClaimStatus').html('<b>สถานะ : </b>'+'<u>'+ claimStatus +'</u>');
 
-	$('#claim-RecieveDate').html('<font size="1"><b>รับของเคลมเข้าระบบเมื่อ : </b>'+ DateReceiveDate+' '+YearReceiveDate+'</font>');
-	$('#claim-SentDate').html('<font size="1"><b>ส่งออกของเคลมเมื่อ : </b>'+ DateSentDate+' '+YearSentDate+'</font>');
+	if(claimInfo.receiveDate != null && typeof claimInfo.receiveDate != undefined){
+		$('#claim-RecieveDate').html('<font size="1"><b>รับของเคลมเข้าระบบเมื่อ : </b>'+ DateReceiveDate+' '+YearReceiveDate+'</font>');
+	}
+	if(claimInfo.sentDate != null && typeof claimInfo.sentDate != undefined){
+		$('#claim-SentDate').html('<font size="1"><b>ส่งออกของเคลมเมื่อ : </b>'+ DateSentDate+' '+YearSentDate+'</font>');
+	}
 
 	$('#claim-ProductName').html('<b>ชื่อสินค้า : </b>'+data.result.productName);
 	$('#claim-Barcode').html('<b>หมายเลข Barcode : </b>'+data.result.barcode);
@@ -131,7 +135,7 @@ function claimInformation(data){
 	var file = convertDataToArray('|', claimInfo.images);
 	if (typeof file != 'undefined') {
 		for(i=0; i<=3; i++) {
-			modal.find('.img'+i+' img').attr('src', 'https://res.cloudinary.com/powerdd/image/upload/v1438076463/0875665456-1.jpg');
+			modal.find('.img'+i+' img').attr('src', '');
 			modal.find('.img'+i+' a').attr('href', '#');
 			if (typeof file[i] != 'undefined' && file[i] != '') {
 				modal.find('.img'+i).show().find('img').attr('src', file[i]);
