@@ -136,7 +136,7 @@ function claimInformation(data){
 	var file = convertDataToArray('|', claimInfo.images);
 	if (typeof file != 'undefined') {
 		for(i=0; i<=3; i++) {
-			modal.find('.img'+i+' img').attr('src', '');
+			modal.find('.img'+i+' img').attr('src', 'https://res.cloudinary.com/powerdd/image/upload/v1438076463/0875665456-1.jpg');
 			modal.find('.img'+i+' a').attr('href', '#');
 			if (typeof file[i] != 'undefined' && file[i] != '') {
 				modal.find('.img'+i).show().find('img').attr('src', file[i]);
