@@ -36,9 +36,11 @@ function checkClaim(){
 		claimdate_to: '',
 		status: '',
 		firstname: '',
-		lineid: ''
+		lineid: '',
+		tel: ''
 	}, function(data){
 			if (data.success) {
+				console.log(data.result[0][0].length)
 				if(typeof data.result[0][0] != undefined){
 					claimInfo = data.result[0][0];
 					productInfo(data.result[0][0].barcode);
