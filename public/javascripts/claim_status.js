@@ -40,8 +40,7 @@ function checkClaim(){
 		tel: ''
 	}, function(data){
 			if (data.success) {
-				console.log(data.result[0].length)
-				if(typeof data.result[0][0] != undefined){
+				if(data.result[0].length > 0){
 					claimInfo = data.result[0][0];
 					productInfo(data.result[0][0].barcode);
 				}else{
